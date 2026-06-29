@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools - Aspect-Ratio| Majagua Producciones</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+
+</head>
+
+<body>
+
+   <nav>
+        <div class="logo"><a href="index.html">MAJAGUA PRODUCCIONES<span>.</span></a></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../index.html#team">Nosotras</a></li>
+            <li><a href="../index.html#ecosistema">Ecosistema</a></li>
+             <li><a href="../portfolio-web.html">Portafolio Web</a></li>
+            <li class="dropdown">
+                <a href="../tools.html" class="dropbtn">Tools <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="../tools/aspect-ratio.html">Simula tu Aspect Ratio</a>
+                    <a href="../tools/paletas.html">Creador de paletas</a>
+                    <a href="../tools/conver-sub.html">Conversion de subtitulos</a>
+                </div>
+            </li>
+            <li><a href="mailto:produccionesmajagua@gmail.com" class="btn-contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="tools-hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-laptop-code"></i> MAJAGUA TOOLS</h1>
+            <p>Herramientas de automatización y flujo de trabajo</p>
+            <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">
+                Optimizadas para Post-Producción
+            </p>
+            <a href="../index.html" class="back-btn">&larr; Volver al Ecosistema</a>
+        </div>
+    </header>
+    <section class="tools-section">
+        
+        <div class="controls-wrapper-paleta">
+            <h2 class="section-title">Creador de Paletas Cinemáticas</h2>
+            <p>Sube una imagen y extrae los colores clave para tu dirección de arte o pitch.</p>
+      
+    <input type="file" id="imageInput" accept="image/*" />
+
+            <br>
+            <canvas id="canvas" style="display: none;"></canvas>
+            <img id="imagePreview" src="" alt="Imagen previa" style="display:none;" />
+            <div id="palette"></div>
+        </div>
+    </section>
+    <div class="footer-deco">
+        <img src="../css/img/Footer5_Majagua.webp" alt="Fondo del mar">
+    </div>
+
+     <footer>
+        <div class="footer-content">
+            <h3>MAJAGUA PRODUCCIONES</h3>
+            <p>Buenos Aires, Argentina</p>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/majaguaproducciones"  target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="mailto:produccionesmajagua@gmail.com" ><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copy">&copy; 2026 Majagua Producciones. Hecho a mano con HTML/CSS/JS.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const canvas = document.getElementById('canvas');
+        const palette = document.getElementById('palette');
+
+        function rgbToHex(r, g, b) {
+            return `#${[r, g, b].map(x => x.toString(16).padStart(2, '0')).join('')}`;
+        }
+
+        function getDistance(c1, c2) {
+            return Math.sqrt(
+                Math.pow(c1[0] - c2[0], 2) +
+                Math.pow(c1[1] - c2[1], 2) +
+                Math.pow(c1[2] - c2[2], 2)
+            );
+        }
+
+        function colorExists(color, colorList, threshold = 25) {
+            return colorList.some(existing => getDistance(existing, color) < threshold);
+        }
+
+        imageInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                imagePreview.src = event.target.result;
+                imagePreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        });
+
+        imagePreview.onload = () => {
+            const ctx = canvas.getContext('2d');
+            const img = imagePreview;
+
+            const scale = 400; // mejor resolución de análisis
+            canvas.width = scale;
+            canvas.height = scale;
+
+            ctx.drawImage(img, 0, 0, scale, scale);
+            const imgData = ctx.getImageData(0, 0, scale, scale).data;
+
+            const colorCount = {};
+            for (let i = 0; i < imgData.length; i += 4) {
+                const r = imgData[i];
+                const g = imgData[i + 1];
+                const b = imgData[i + 2];
+                const a = imgData[i + 3];
+                if (a < 125) continue; // ignorar píxeles transparentes
+                const key = `${r},${g},${b}`;
+                colorCount[key] = (colorCount[key] || 0) + 1;
+            }
+
+            // Ordenar por frecuencia
+            const sortedColors = Object.entries(colorCount).sort((a, b) => b[1] - a[1]);
+
+            const topColors = [];
+            for (const [rgb] of sortedColors) {
+                const color = rgb.split(',').map(Number);
+                if (!colorExists(color, topColors)) {
+                    topColors.push(color);
+                }
+                if (topColors.length >= 9) break;
+            }
+
+            // Mostrar paleta
+            palette.innerHTML = '';
+            topColors.forEach(([r, g, b]) => {
+                const hex = rgbToHex(r, g, b);
+                const div = document.createElement('div');
+                div.className = 'colorBlock';
+                div.style.background = hex;
+                div.title = hex;
+                div.innerHTML = `<span>${hex}</span>`;
+                div.onclick = () => navigator.clipboard.writeText(hex);
+                palette.appendChild(div);
+            });
+        };
+    </script>
+</body>
+
+</html>

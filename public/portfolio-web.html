@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majagua Producciones | Tools </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="css/img/Icon.webp">
+</head>
+
+<body>
+       <nav>
+        <div class="logo"><a href="index.html">MAJAGUA PRODUCCIONES<span>.</span></a></div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#team">Nosotras</a></li>
+            <li><a href="index.html#ecosistema">Ecosistema</a></li>
+             <li><a href="portfolio-web.html">Portafolio Web</a></li>
+            <li class="dropdown">
+                <a href="tools.html" class="dropbtn">Tools <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="../tools/aspect-ratio.html">Simula tu Aspect Ratio</a>
+                    <a href="../tools/paletas.html">Creador de paletas</a>
+                    <a href="../tools/conver-sub.html">Conversion de subtitulos</a>
+                </div>
+            </li>
+            <li><a href="mailto:produccionesmajagua@gmail.com" class="btn-contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="web-hero">
+        <div class="container">
+            <a href="index.html" style="color: #888; font-size: 0.9rem;"><i class="fas fa-arrow-left"></i> Volver al
+                Inicio</a>
+            <h1 style="margin-top: 15px;">Archivo Digital & Desarrollo</h1>
+            <p style="max-width: 600px; margin: 10px auto; color: #ccc;">
+                Selección de proyectos implementados: Desde aplicaciones web progresivas (PWA) hasta plataformas
+                comerciales de alto tráfico.
+            </p>
+        </div>
+    </header>
+
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Nuestro Portafolio</h2>
+
+            <div class="filters">
+                <button class="filter-btn active" onclick="filter('all')">Todo</button>
+                <button class="filter-btn" onclick="filter('wordpress')">Wordpress</button>
+                <button class="filter-btn" onclick="filter('Ecoomerce')">Ecoomerce</button>
+                <button class="filter-btn" onclick="filter('portafolio')">Portafolios personales</button>
+                <button class="filter-btn" onclick="filter('code')">Custom Code</button>
+              
+            </div>
+
+            <div class="projects-grid">
+
+
+                <div class="card video-card code">
+                    <a href="https://www.rachagym.com/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="/css/img/rachin-512-FN.png" alt="RachaGym">
+                        </div>
+                        <div class="web-body">
+                            <h3>RachaGym</h3>
+                            <p>Plataforma fitness gamificada. Desarrollo completo de frontend y lógica de usuario.</p>
+                            <div class="tech-stack">
+                                <span class="tag next">Next.js</span>
+                                <span class="tag js">React</span>
+                                <!--     <span class="tag css">Tailwind</span>-->
+                            </div>
+                            <div class="visit-btn">Visitar App <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card video-card code">
+                    <a href="https://linajesterraweb.firebaseapp.com/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="css/img/logos/LinajesRevisados2.jpg" alt="Linajes Terra">
+                        </div>
+                        <div class="web-body">
+                            <h3>Linajes Terra</h3>
+                            <p>Aplicación web desplegada en Firebase. Gestión de datos y visualización.</p>
+                            <div class="tech-stack">
+                                <span class="tag firebase">Firebase</span>
+                                <span class="tag js">JavaScript</span>
+                                <span class="tag css">HTML5</span>
+                            </div>
+                            <div class="visit-btn">Visitar App <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card video-card code">
+                    <a href="https://www.cinearbitrario.com/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="/css/img/cinearbitrario.png" alt="Cine Arbitrario">
+                        </div>
+                        <div class="web-body">
+                            <h3>Cine Arbitrario</h3>
+                            <p>Sitio oficial del podcast. Integración de reproductores y blog de contenidos.</p>
+                            <div class="tech-stack">
+                                 <span class="tag firebase">Firebase</span>
+                          <span class="tag js">JavaScript</span>
+                                <span class="tag css">Media</span>
+                            </div>
+                            <div class="visit-btn">Visitar Web <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card video-card wordpress portafolio">
+                    <a href="https://elgeorgeharris.com/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="css/img/logos/George.PNG" alt="George Harris">
+                        </div>
+                        <div class="web-body">
+                            <h3>El George Harris</h3>
+                            <p>Sitio oficial para figura pública internacional. Alto tráfico y venta de tickets.</p>
+                            <div class="tech-stack">
+                                <span class="tag wp">WordPress</span>
+                                <span class="tag css">High Traffic</span>
+                            </div>
+                            <div class="visit-btn">Visitar Web <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card video-card wordpress Ecoomerce">
+
+                    <a href="https://elsenseigrowshop.com/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="css/img/logos/VERSION-LOGO-EL-SENSEI-5.png" alt="El Sensei">
+                        </div>
+                        <div class="web-body">
+                            <h3>El Sensei Growshop</h3>
+                            <p>E-commerce completo con catálogo extenso y pasarela de pagos.</p>
+                            <div class="tech-stack">
+                                <span class="tag ecom">WooCommerce</span>
+                                <span class="tag wp">WordPress</span>
+                            </div>
+                            <div class="visit-btn">Visitar Tienda <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card video-card wordpress">
+                    <a href="https://gogreenargentina.com/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="css/img/logos/GoGreen-Logo.png" alt="Go Green">
+                        </div>
+                        <div class="web-body">
+                            <h3>Go Green Argentina</h3>
+                            <p>Sitio corporativo enfocado en sustentabilidad y servicios.</p>
+                            <div class="tech-stack">
+                                <span class="tag wp">WordPress</span>
+                                <span class="tag css">Institucional</span>
+                            </div>
+                            <div class="visit-btn">Visitar Web <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card video-card wordspress portafolio">
+                    <a href="https://marialauravasquez.com.ar/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800"
+                                alt="Maria Laura">
+                        </div>
+                        <div class="web-body">
+                            <h3>María Laura Vásquez</h3>
+                            <p>Portfolio profesional minimalista.</p>
+                            <div class="tech-stack">
+                                <span class="tag js">Diseño</span>
+                            </div>
+                            <div class="visit-btn">Visitar <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card video-card wordpress">
+                    <a href="https://aramoscine.com.ar/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="css/img/logos/aramos.PNG" alt="A Ramos Cine">
+                        </div>
+                        <div class="web-body">
+                            <h3>Aramos Cine</h3>
+                            <p>Portfolio para profesional de la industria audiovisual.</p>
+                            <div class="tech-stack">
+                                <span class="tag wp">WordPress</span>
+                                <span class="tag css">Video</span>
+                            </div>
+                            <div class="visit-btn">Visitar <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card video-card wordpress portafolio">
+                    <a href="https://anitatorrens.com/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?auto=format&fit=crop&w=800"
+                                alt="Anita Torrens">
+                        </div>
+                        <div class="web-body">
+                            <h3>Anita Torrens</h3>
+                            <p>Sitio personal de marca y servicios.</p>
+                            <div class="tech-stack">
+                                <span class="tag wp">WordPress</span>
+                                <span class="tag css">Branding</span>
+                            </div>
+                            <div class="visit-btn">Visitar <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card video-card ordpress portafolio">
+                    <a href="https://ninoskagarroz.com/" target="_blank" class="web-card">
+                        <div class="web-card-img">
+                            <img src="css/img/logos/ninoska.PNG" alt="Anita Torrens">
+                        </div>
+                        <div class="web-body">
+                            <h3>Ninoska Garroz</h3>
+                            <p>Sitio personal de marca y servicios.</p>
+                            <div class="tech-stack">
+                                <span class="tag wp">WordPress</span>
+                                <span class="tag css">Branding</span>
+                            </div>
+                            <div class="visit-btn">Visitar <i class="fas fa-external-link-alt"></i></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <div class="footer-deco">
+        <img src="css/img/Footer5_Majagua.webp" alt="Fondo del mar">
+    </div>
+    <footer>
+        <div class="footer-content">
+            <h3>MAJAGUA PRODUCCIONES</h3>
+            <p>Buenos Aires, Argentina</p>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/majaguaproducciones" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="mailto:produccionesmajagua@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copy">&copy; 2026 Majagua Producciones. Hecho a mano con HTML/CSS/JS.</p>
+        </div>
+    </footer>
+
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
