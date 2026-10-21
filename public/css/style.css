@@ -111,7 +111,7 @@
      background-color: var(--deep-blue);
 
      /* TU IMAGEN DE FONDO */
-     background-image: url('img/Fondo3_sintitulo.png');
+     background-image: url('img/Fondo3_sintitulo.webp');
      background-size: cover;
      background-position: center;
      background-attachment: fixed;
@@ -704,6 +704,9 @@
 .hamburger {
     display: none;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 6px;
 }
 
 .bar {
@@ -903,3 +906,8 @@
             color: var(--cyan-bright);
             text-transform: uppercase;
         }
+/* Página actual resaltada en el menú (lo marca js/layout.js) */
+.nav-links a[aria-current="page"],
+.dropdown-content a[aria-current="page"] {
+    color: var(--cyan-bright) !important;
+}

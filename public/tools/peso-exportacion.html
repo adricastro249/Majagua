@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de peso de exportación ProRes, DNxHR y H.264 | Majagua Tools</title>
+    <meta name="description" content="Calculá cuánto ocupa un video según códec (ProRes 422 HQ, 4444, DNxHR, H.264, H.265, DCP), resolución, frame rate y duración. Ideal para presupuestar discos y entregas.">
+    <link rel="canonical" href="https://majaguaproducciones.com/tools/peso-exportacion.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majagua Producciones">
+    <meta property="og:title" content="Calculadora de peso de exportación ProRes, DNxHR y H.264 | Majagua Tools">
+    <meta property="og:description" content="Calculá cuánto ocupa un video según códec (ProRes 422 HQ, 4444, DNxHR, H.264, H.265, DCP), resolución, frame rate y duración. Ideal para presupuestar discos y entregas.">
+    <meta property="og:url" content="https://majaguaproducciones.com/tools/peso-exportacion.html">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+</head>
+
+<body>
+    <nav data-layout="nav"></nav>
+    <script src="../js/layout.js"></script>
+
+    <header data-layout="tools-hero"></header>
+
+    <section class="tools-section">
+        <div class="container tool-wide">
+            <h2 class="section-title">Calculadora de Peso de Exportación</h2>
+            <p>Estimá cuánto va a ocupar una exportación según códec, resolución, frame rate y duración. Ideal para
+                presupuestar discos, backups y entregas.</p>
+
+            <div class="tool-grid peso-grid">
+                <div class="tool-panel">
+                    <h3><i class="fas fa-sliders"></i> Configuración</h3>
+
+                    <div class="input-group">
+                        <label for="codec">Códec</label>
+                        <select id="codec">
+                            <optgroup label="Apple ProRes">
+                                <option value="prores-proxy">ProRes 422 Proxy</option>
+                                <option value="prores-lt">ProRes 422 LT</option>
+                                <option value="prores-422">ProRes 422</option>
+                                <option value="prores-hq" selected>ProRes 422 HQ</option>
+                                <option value="prores-4444">ProRes 4444</option>
+                                <option value="prores-xq">ProRes 4444 XQ</option>
+                            </optgroup>
+                            <optgroup label="Avid DNxHR">
+                                <option value="dnxhr-lb">DNxHR LB</option>
+                                <option value="dnxhr-sq">DNxHR SQ</option>
+                                <option value="dnxhr-hq">DNxHR HQ</option>
+                                <option value="dnxhr-hqx">DNxHR HQX (10 bits)</option>
+                                <option value="dnxhr-444">DNxHR 444</option>
+                            </optgroup>
+                            <optgroup label="Entrega">
+                                <option value="dcp">DCP · JPEG 2000 (máx. 250 Mbps)</option>
+                                <option value="h264">H.264 (bitrate a elección)</option>
+                                <option value="h265">H.265 / HEVC (bitrate a elección)</option>
+                                <option value="v210">Sin compresión 10 bits 4:2:2 (v210)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="input-group" id="bitrateGroup" hidden>
+                        <label for="bitrate">Bitrate de video (Mbps)</label>
+                        <input type="number" id="bitrate" value="20" min="0.5" step="0.5">
+                        <small id="bitrateHint"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="resolution">Resolución</label>
+                        <select id="resolution">
+                            <option value="1280x720">HD 720p · 1280×720</option>
+                            <option value="1920x1080" selected>Full HD · 1920×1080</option>
+                            <option value="2048x1080">DCI 2K · 2048×1080</option>
+                            <option value="3840x2160">UHD 4K · 3840×2160</option>
+                            <option value="4096x2160">DCI 4K · 4096×2160</option>
+                            <option value="1080x1920">Vertical · 1080×1920</option>
+                            <option value="custom">Personalizada…</option>
+                        </select>
+                    </div>
+
+                    <div class="input-row" id="customRes" hidden>
+                        <div class="input-group">
+                            <label for="resW">Ancho</label>
+                            <input type="number" id="resW" value="1920" min="16">
+                        </div>
+                        <div class="input-group">
+                            <label for="resH">Alto</label>
+                            <input type="number" id="resH" value="1080" min="16">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="fps">Frame rate</label>
+                            <select id="fps">
+                                <option value="23.976">23.976</option>
+                                <option value="24" selected>24</option>
+                                <option value="25">25</option>
+                                <option value="29.97">29.97</option>
+                                <option value="30">30</option>
+                                <option value="50">50</option>
+                                <option value="59.94">59.94</option>
+                                <option value="60">60</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="duration">Duración</label>
+                            <input type="text" id="duration" value="01:30:00" placeholder="hh:mm:ss">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="audioChannels">Canales de audio</label>
+                            <select id="audioChannels">
+                                <option value="0">Sin audio</option>
+                                <option value="2" selected>2 (estéreo)</option>
+                                <option value="6">6 (5.1)</option>
+                                <option value="8">8 (7.1 o 5.1 + estéreo)</option>
+                                <option value="16">16 (stems)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="audioType">Tipo de audio</label>
+                            <select id="audioType">
+                                <option value="pcm24">PCM 24 bits 48 kHz</option>
+                                <option value="aac">AAC 320 kbps</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-panel">
+                    <h3><i class="fas fa-hard-drive"></i> Resultado</h3>
+                    <div class="tool-result">
+                        <span class="result-label">Peso estimado</span>
+                        <output id="sizeGB" class="result-big"></output>
+                        <span class="result-sub" id="sizeSub"></span>
+                    </div>
+                    <table class="data-table">
+                        <tbody id="detailRows"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tool-panel compare-panel">
+                <h3><i class="fas fa-table"></i> Comparación de códecs para esta configuración</h3>
+                <div class="table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Códec</th><th class="num">Mbps</th><th class="num">Por minuto</th><th class="num">Por hora</th><th class="num">Total</th></tr>
+                        </thead>
+                        <tbody id="compareRows"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <p class="tool-note">Valores estimados a partir de los bitrates de referencia de Apple (ProRes) y Avid (DNxHR), escalados según
+                resolución y frame rate. ProRes y DNxHR varían un poco según el contenido; H.264 y H.265 dependen del bitrate que elijas.
+                GB = 1000³ bytes (como los fabricantes de discos); Windows muestra GiB, un 7% menos.</p>
+        </div>
+    </section>
+
+    <div data-layout="footer"></div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/tools/peso-exportacion.js"></script>
+</body>
+
+</html>

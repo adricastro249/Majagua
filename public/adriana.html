@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adriana Castro | Majagua Producciones</title>
+    <meta name="description" content="Adriana Castro: editora online y offline, colorista en DaVinci Resolve y desarrolladora web. Reel y proyectos en Majagua Producciones, Buenos Aires.">
+    <link rel="canonical" href="https://majaguaproducciones.com/adriana.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majagua Producciones">
+    <meta property="og:title" content="Adriana Castro | Majagua Producciones">
+    <meta property="og:description" content="Adriana Castro: editora online y offline, colorista en DaVinci Resolve y desarrolladora web. Reel y proyectos en Majagua Producciones, Buenos Aires.">
+    <meta property="og:url" content="https://majaguaproducciones.com/adriana.html">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,25 +20,8 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo"><a href="index.html">MAJAGUA PRODUCCIONES<span>.</span></a></div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="index.html#team">Nosotras</a></li>
-            <li><a href="index.html#ecosistema">Ecosistema</a></li>
-            <li><a href="portfolio-web.html">Portafolio Web</a></li>
-            <li class="dropdown">
-                <a href="tools.html" class="dropbtn">Tools <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="../tools/aspect-ratio.html">Simula tu Aspect Ratio</a>
-                    <a href="../tools/paletas.html">Creador de paletas</a>
-                    <a href="../tools/conver-sub.html">Conversion de subtitulos</a>
-                </div>
-            </li>
-            <li><a href="mailto:produccionesmajagua@gmail.com" class="btn-contact">Contacto</a></li>
-        </ul>
-    </nav>
+    <nav data-layout="nav"></nav>
+    <script src="js/layout.js"></script>
 
     <header class="profile-hero">
         <div class="hero-content">
@@ -47,18 +37,18 @@
             <h2 class="section-title">Mi Portafolio</h2>
 
             <div class="filters">
-                <button class="filter-btn active" onclick="filter('all')">Todo</button>
-                <button class="filter-btn" onclick="filter('online')">Edicion Online</button>
-                <button class="filter-btn" onclick="filter('offline')">Edicion Offline</button>
-                <button class="filter-btn" onclick="filter('coordinacion')">Coordinación Post producción</button>
-                <button class="filter-btn" onclick="filter('direccion')">Direción</button>
+                <button class="filter-btn active" data-filter="all">Todo</button>
+                <button class="filter-btn" data-filter="online">Edición Online</button>
+                <button class="filter-btn" data-filter="offline">Edición Offline</button>
+                <button class="filter-btn" data-filter="coordinacion">Coordinación de Postproducción</button>
+                <button class="filter-btn" data-filter="direccion">Dirección</button>
             </div>
 
             <div class="projects-grid">
 
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/gRiibk97NqI?si=7XMJKGkeGUQ-j7ML"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -75,7 +65,7 @@
 
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/-76wb48m-hA?si=MbjWPzSwCL_X_mjO"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -91,7 +81,7 @@
 
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/MbzDjwVzH_w?si=v0ri990TAJX2VzdY"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -106,7 +96,7 @@
                 </div>
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/_Tdk26fRQE0?si=LOS6bWYsJ1mfAPxI"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -121,7 +111,7 @@
                 </div>
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/zEuHhRUPPqw?si=3LcdP0ikps9CU8xW"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -136,7 +126,7 @@
                 </div>
                 <div class="card video-card coordinacion">
                     <div class="video-wrapper">
-                        ><iframe
+                        ><iframe loading="lazy"
                             src="https://player.vimeo.com/video/1121626771?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                             frameborder="0"
                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -153,7 +143,7 @@
                 </div>
                 <div class="card video-card offline ">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/Ra1YYOdmmzw?si=fwTU86F1FAzRV8bx"
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/Ra1YYOdmmzw?si=fwTU86F1FAzRV8bx"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
@@ -167,7 +157,7 @@
                 </div>
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/hjkdUT7LtCI?si=XsTp4Lx1lWMYDbIU"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -182,7 +172,7 @@
                 </div>
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/2KaVAs45IN4?si=cr1eVaZgLjUuGK-G"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -197,7 +187,7 @@
                 </div>
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/Y3MpPvbQHXA?si=5ZNTMmrPdzJvtx1H"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -213,7 +203,7 @@
                 </div>
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/agqHqHScs1I?si=HV0It0lTi5FGhHH1"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -228,7 +218,7 @@
                 </div>
                 <div class="card video-card offline">
                     <div class="video-wrapper">
-                        <iframe
+                        <iframe loading="lazy"
                             src="https://player.vimeo.com/video/899828942?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                             frameborder="0"
                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -245,7 +235,7 @@
                 </div>
                 <div class="card video-card offline">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/cQ62HEuGiHY?si=xqES__Wm94KxsWan"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -260,7 +250,7 @@
                 </div>
                 <div class="card video-card coordinacion">
                     <div class="video-wrapper">
-                        <iframe
+                        <iframe loading="lazy"
                             src="https://player.vimeo.com/video/817085933?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                             frameborder="0"
                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -277,7 +267,7 @@
                 </div>
                 <div class="card video-card offline ">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/zlqVz6g6E-c?si=yqfHf9dnOh5c_qK8"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -292,7 +282,7 @@
                 </div>
                 <div class="card video-card offline ">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/rSxEmZn4gQA?si=4CECJixEhIQczBAH"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -307,7 +297,7 @@
                 </div>
                 <div class="card video-card offline ">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/p1kIxpfcpoI?si=Uy_uypBWlVy8DHpt"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -322,7 +312,7 @@
                 </div>
                 <div class="card video-card offline ">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/scbAFQQ5jT8?si=JIWGz45nLZ9yJiK7"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -337,7 +327,7 @@
                 </div>
                 <div class="card video-card offline ">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/scbAFQQ5jT8?si=JIWGz45nLZ9yJiK7"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -352,7 +342,7 @@
                 </div>
                 <div class="card video-card offline ">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/tib1no6LzZw?si=ouOuTKFNBTRStTmu"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -367,7 +357,7 @@
                 </div>
                 <div class="card video-card offline ">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/afEKCdEfyi4?si=N_LGwr_QoxY77Sk5"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -382,7 +372,7 @@
                 </div>
                 <div class="card video-card coordinacion">
                     <div class="video-wrapper">
-                        <iframe
+                        <iframe loading="lazy"
                             src="https://player.vimeo.com/video/541792825?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                             frameborder="0"
                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -399,7 +389,7 @@
                 </div>
                 <div class="card video-card coordinacion">
                     <div class="video-wrapper">
-                        <iframe
+                        <iframe loading="lazy"
                             src="https://player.vimeo.com/video/704283920?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                             frameborder="0"
                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -416,7 +406,7 @@
                 </div>
                 <div class="card video-card online">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/n25aXSqXaso?si=uRYsdRMGCtOxsf2k"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -431,7 +421,7 @@
                 </div>
                 <div class="card video-card coordinacion">
                     <div class="video-wrapper">
-                        <iframe
+                        <iframe loading="lazy"
                             src="https://player.vimeo.com/video/329871833?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                             frameborder="0"
                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -448,7 +438,7 @@
                 </div>
                 <div class="card video-card offline ">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/fBoXI3ZXzz8?si=I_cugdrb_8aKswMB"
+                        <iframe loading="lazy" src="https://www.youtube.com/embed/fBoXI3ZXzz8?si=I_cugdrb_8aKswMB"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
@@ -463,7 +453,7 @@
                 </div>
                 <div class="card video-card direccion">
                     <div class="video-wrapper">
-                        <iframe width="560" height="315"
+                        <iframe loading="lazy" width="560" height="315"
                             src="https://www.youtube.com/embed/iQ36W5A7eXs?si=BjFF4yD246Jzho7X"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -478,7 +468,7 @@
                 </div>
                 <div class="card video-card direccion">
                     <div class="video-wrapper">
-                        <iframe
+                        <iframe loading="lazy"
                             src="https://player.vimeo.com/video/225308400?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                             frameborder="0"
                             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -500,23 +490,10 @@
 
 
 
-    <div class="footer-deco">
-        <img src="css/img/Footer5_Majagua.webp" alt="Fondo del mar">
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <h3>MAJAGUA PRODUCCIONES</h3>
-            <div class="footer-links">
-                <a href="https://instagram.com/adricastro249" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://linkedin.com/in/adricastro249" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p class="copy">&copy; 2026. Portfolio de Adriana Castro.</p>
-        </div>
-    </footer>
+    <div data-layout="footer" data-owner="adriana"></div>
 
 
     <script src="js/main.js"></script>
 </body>
 
-</html>
+</html>

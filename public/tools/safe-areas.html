@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe areas para Reels, TikTok, Shorts y TV | Majagua Tools</title>
+    <meta name="description" content="Mirá las zonas seguras de títulos y acción (SMPTE) y de la interfaz de Instagram Reels, Stories, TikTok y YouTube Shorts sobre tu fotograma. Descargá la guía en PNG para Resolve.">
+    <link rel="canonical" href="https://majaguaproducciones.com/tools/safe-areas.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majagua Producciones">
+    <meta property="og:title" content="Safe areas para Reels, TikTok, Shorts y TV | Majagua Tools">
+    <meta property="og:description" content="Mirá las zonas seguras de títulos y acción (SMPTE) y de la interfaz de Instagram Reels, Stories, TikTok y YouTube Shorts sobre tu fotograma. Descargá la guía en PNG para Resolve.">
+    <meta property="og:url" content="https://majaguaproducciones.com/tools/safe-areas.html">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+</head>
+
+<body>
+    <nav data-layout="nav"></nav>
+    <script src="../js/layout.js"></script>
+
+    <header data-layout="tools-hero"></header>
+
+    <section class="tools-section">
+        <div class="container tool-wide">
+            <h2 class="section-title">Safe Areas para Cine, TV y Redes</h2>
+            <p>Subí un fotograma (o elegí un tamaño) y mirá qué queda fuera de las zonas seguras de títulos, acción y de la
+                interfaz de Reels, Stories, TikTok y Shorts. Descargá la guía como PNG transparente para usarla en Resolve.</p>
+
+            <div class="safe-layout">
+                <div class="tool-panel safe-controls">
+                    <h3><i class="fas fa-image"></i> Fotograma</h3>
+                    <div class="input-group">
+                        <label for="frameUpload">Subir imagen (opcional)</label>
+                        <input type="file" id="frameUpload" accept="image/*">
+                    </div>
+                    <div class="input-group">
+                        <label for="frameSize">o elegir tamaño</label>
+                        <select id="frameSize">
+                            <option value="1920x1080">1920×1080 (HD 16:9)</option>
+                            <option value="3840x2160">3840×2160 (UHD 16:9)</option>
+                            <option value="1998x1080">1998×1080 (DCP Flat)</option>
+                            <option value="2048x858">2048×858 (DCP Scope)</option>
+                            <option value="1080x1920" selected>1080×1920 (Vertical 9:16)</option>
+                            <option value="1080x1350">1080×1350 (Feed 4:5)</option>
+                            <option value="1080x1080">1080×1080 (Cuadrado)</option>
+                        </select>
+                    </div>
+
+                    <h3><i class="fas fa-layer-group"></i> Guías</h3>
+                    <div class="input-group checks" id="guideList"></div>
+
+                    <div class="input-group">
+                        <label for="shadeOpacity">Oscurecer zonas no seguras</label>
+                        <input type="range" id="shadeOpacity" min="0" max="80" value="45">
+                    </div>
+
+                    <div class="btn-row">
+                        <button type="button" class="btn-primary" id="downloadOverlay"><i class="fas fa-download"></i> PNG solo guías</button>
+                        <button type="button" class="btn-primary" id="downloadComposite"><i class="fas fa-download"></i> PNG con imagen</button>
+                    </div>
+                </div>
+
+                <div class="tool-panel safe-preview">
+                    <canvas id="safeCanvas" aria-label="Vista previa de las zonas seguras"></canvas>
+                    <ul class="safe-legend" id="safeLegend"></ul>
+                </div>
+            </div>
+
+            <p class="tool-note">Cine y TV: SMPTE ST 2046-1 (acción 93%, títulos 90%) y el criterio clásico (90% / 80%). Las zonas de redes son
+                aproximadas: cada app las cambia con sus actualizaciones y varían según el teléfono. Usalas como margen de seguridad
+                y verificá con una prueba real antes de publicar.</p>
+        </div>
+    </section>
+
+    <div data-layout="footer"></div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/tools/safe-areas.js"></script>
+</body>
+
+</html>
