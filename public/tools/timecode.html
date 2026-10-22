@@ -106,6 +106,64 @@
                     </div>
                 </div>
             </div>
+
+            <!-- MOVER MARCAS EN UN ARCHIVO -->
+            <div class="tool-panel shift-panel" id="shiftPanel">
+                <h3><i class="fas fa-arrows-left-right"></i> Mover las marcas de un archivo</h3>
+                <p class="panel-intro">Subí un EDL, XML (Premiere / FCP 7), CSV o TXT con timecodes y movelos todos juntos. Sirve cuando
+                    agregaste o sacaste material y las marcas quedaron corridas. Usa el frame rate elegido arriba.</p>
+
+                <div class="shift-grid">
+                    <div class="input-group">
+                        <label for="shiftFile">Archivo</label>
+                        <input type="file" id="shiftFile" accept=".edl,.xml,.csv,.txt,.tsv">
+                        <small id="shiftInfo" class="conv-out"></small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="shiftMode">Qué querés hacer</label>
+                        <select id="shiftMode">
+                            <option value="offset">Mover todo una cantidad de tiempo</option>
+                            <option value="start">Que el primer TC pase a ser…</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" id="offsetGroup">
+                        <label for="shiftAmount">Cuánto mover</label>
+                        <div class="tc-row tc-row-2">
+                            <select id="shiftSign" class="tc-op" aria-label="Dirección">
+                                <option value="+">+ adelante</option>
+                                <option value="-">− atrás</option>
+                            </select>
+                            <input type="text" id="shiftAmount" class="tc-input" value="00:00:35:00" inputmode="numeric">
+                        </div>
+                    </div>
+
+                    <div class="input-group" id="startGroup" hidden>
+                        <label for="shiftNewStart">Nuevo TC del primer evento</label>
+                        <input type="text" id="shiftNewStart" class="tc-input" value="01:00:00:00" inputmode="numeric">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="shiftFrom">Mover solo desde este TC (opcional)</label>
+                        <input type="text" id="shiftFrom" class="tc-input" placeholder="Vacío = mover todo" inputmode="numeric">
+                        <small>Ej: si insertaste 35 segundos en 01:05:00:00, solo se mueven las marcas posteriores.</small>
+                    </div>
+                </div>
+
+                <label class="inline-check"><input type="checkbox" id="shiftRecordOnly"> En un EDL de cortes, mover solo los TC de grabación (record), no los de origen</label>
+
+                <div class="table-scroll">
+                    <table class="data-table">
+                        <thead><tr><th>Línea</th><th class="num">Antes</th><th class="num">Después</th></tr></thead>
+                        <tbody id="shiftPreview"><tr><td colspan="3" class="empty">Subí un archivo para ver la vista previa.</td></tr></tbody>
+                    </table>
+                </div>
+
+                <div class="btn-row">
+                    <button type="button" class="btn-primary" id="shiftDownload" disabled><i class="fas fa-download"></i> Descargar archivo corregido</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -113,7 +171,8 @@
 
     <script src="../js/main.js?v=20261020"></script>
     <script src="../js/tools/tc-lib.js?v=20261020"></script>
-    <script src="../js/tools/timecode.js?v=20261020"></script>
+    <script src="../js/tools/timecode.js?v=20261022"></script>
+    <script src="../js/tools/tc-shift.js?v=20261022"></script>
 </body>
 
 </html>

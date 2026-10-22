@@ -12,29 +12,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const warnings = $('dcpWarnings');
     const copyBtn = $('copyDcpBtn');
 
-    // Códigos de idioma del registro ISDCF (los más usados en la región)
+    // Códigos de idioma del registro ISDCF (https://www.isdcf.com/registry/languages/)
     const LANGUAGES = [
-        ['ES', 'Español (España)'],
-        ['LAS', 'Español latinoamericano'],
-        ['EN', 'Inglés'],
-        ['PT', 'Portugués (Portugal)'],
-        ['QBP', 'Portugués (Brasil)'],
-        ['FR', 'Francés'],
-        ['IT', 'Italiano'],
-        ['DE', 'Alemán'],
-        ['JA', 'Japonés'],
-        ['KO', 'Coreano'],
-        ['ZH', 'Chino'],
-        ['XX', 'Sin diálogo / no aplica']
+        ['QSA', 'Español (Argentina)'], ['LAS', 'Español latinoamericano (neutro)'], ['ES', 'Español (España / castellano)'],
+        ['QSB', 'Español (Bolivia)'], ['QCL', 'Español (Chile)'], ['QCO', 'Español (Colombia)'], ['QCA', 'Español (Costa Rica)'],
+        ['QCU', 'Español (Cuba)'], ['QSE', 'Español (Ecuador)'], ['QSL', 'Español (El Salvador)'], ['QGU', 'Español (Guatemala)'],
+        ['QSH', 'Español (Honduras)'], ['QSM', 'Español (México)'], ['QNI', 'Español (Nicaragua)'], ['QPA', 'Español (Panamá)'],
+        ['QPY', 'Español (Paraguay)'], ['QPE', 'Español (Perú)'], ['QPR', 'Español (Puerto Rico)'], ['QSD', 'Español (República Dominicana)'],
+        ['QUY', 'Español (Uruguay)'], ['QVE', 'Español (Venezuela)'], ['QUS', 'Español (Estados Unidos)'],
+        ['QBP', 'Portugués (Brasil)'], ['PT', 'Portugués (Portugal)'],
+        ['EN', 'Inglés'], ['EUS', 'Inglés (Estados Unidos)'], ['EGB', 'Inglés (Reino Unido)'],
+        ['FR', 'Francés'], ['QFC', 'Francés (Canadá)'], ['IT', 'Italiano'], ['DE', 'Alemán'],
+        ['JA', 'Japonés'], ['KO', 'Coreano'], ['ZH', 'Chino'], ['CMN', 'Chino mandarín (audio)'], ['YUE', 'Chino cantonés'],
+        ['GN', 'Guaraní'], ['QUZ', 'Quechua (Cusco)'], ['ARN', 'Mapuche (mapudungun)'],
+        ['XX', 'Ninguno · sin diálogo / sin subtítulos']
     ];
 
-    document.querySelectorAll('.lang-select').forEach(select => {
-        LANGUAGES.forEach(([code, name]) => {
-            const label = code === 'XX' && select.dataset.none ? select.dataset.none : `${code} · ${name}`;
-            select.add(new Option(label, code));
-        });
-        select.value = select.dataset.default;
+    // Territorios: códigos ISO 3166 (todo Latinoamérica, Centroamérica y el Caribe hispano primero)
+    const TERRITORIES = [
+        ['AR', 'Argentina'], ['BO', 'Bolivia'], ['BR', 'Brasil'], ['CL', 'Chile'], ['CO', 'Colombia'], ['CR', 'Costa Rica'],
+        ['CU', 'Cuba'], ['EC', 'Ecuador'], ['SV', 'El Salvador'], ['GT', 'Guatemala'], ['HN', 'Honduras'], ['MX', 'México'],
+        ['NI', 'Nicaragua'], ['PA', 'Panamá'], ['PY', 'Paraguay'], ['PE', 'Perú'], ['PR', 'Puerto Rico'],
+        ['DO', 'República Dominicana'], ['UY', 'Uruguay'], ['VE', 'Venezuela'], ['BZ', 'Belice'],
+        ['US', 'Estados Unidos'], ['CA', 'Canadá'], ['ES', 'España'], ['PT', 'Portugal'], ['FR', 'Francia'],
+        ['DE', 'Alemania'], ['IT', 'Italia'], ['GB', 'Reino Unido'],
+        ['INT-TD', 'Internacional con textos'], ['INT-TL', 'Internacional sin textos (textless)']
+    ];
+
+    // ---------- Campos con autocompletado: se escribe "argentina", "méxico" o el código ----------
+    const norm = (t) => String(t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    const labelOf = ([code, name]) => `${code} · ${name}`;
+
+    const COMBOS = {
+        audioLanguage: { list: LANGUAGES, def: 'QSA' },
+        subLanguage: { list: LANGUAGES, def: 'XX' },
+        territory: { list: TERRITORIES, def: 'AR' }
+    };
+
+    // Devuelve el código que corresponde a lo escrito, o null si no hay coincidencia
+    function resolve(id) {
+        const { list } = COMBOS[id];
+        const q = norm($(id).value);
+        if (!q) return null;
+        const exactLabel = list.find(e => norm(labelOf(e)) === q);
+        const exactCode = list.find(([code]) => norm(code) === q);
+        const exactName = list.find(([, name]) => norm(name) === q);
+        // Si escribe un país ("argentina"), prioriza la variante de ese país sobre el idioma general
+        const partial = list.find(([, name]) => norm(name).includes(q)) || list.find(e => norm(labelOf(e)).includes(q));
+        const hit = exactLabel || exactCode || exactName || partial;
+        return hit ? hit[0] : null;
+    }
+
+    function setCombo(id, code) {
+        const entry = COMBOS[id].list.find(([c]) => c === code);
+        $(id).value = entry ? labelOf(entry) : '';
+    }
+
+    Object.entries(COMBOS).forEach(([id, cfg]) => {
+        $(id + 'List').innerHTML = cfg.list.map(e => `<option value="${labelOf(e)}"></option>`).join('');
+        setCombo(id, cfg.def);
+        // Al salir del campo se completa con el nombre oficial
+        $(id).addEventListener('change', () => { const c = resolve(id); if (c) setCombo(id, c); buildName(); });
+        $(id).addEventListener('focus', () => $(id).select());
     });
+
+    function comboCode(id) {
+        const code = resolve(id);
+        $(id).classList.toggle('invalid', !code);
+        $(id + 'Hint').textContent = code ? `Código: ${code}` : 'No encontré ese idioma o país';
+        return code || COMBOS[id].def;
+    }
+
+    // Medidas del contenedor según la resolución
+    const CONTAINER_SIZES = {
+        '2K': { F: '1998×1080', S: '2048×858', C: '2048×1080' },
+        '4K': { F: '3996×2160', S: '4096×1716', C: '4096×2160' }
+    };
+    const CONTAINER_NAMES = { F: 'F · Flat (1.85:1', S: 'S · Scope (2.39:1', C: 'C · Full container (1.90:1' };
+    function updateContainerLabels() {
+        const sizes = CONTAINER_SIZES[$('resolution').value];
+        [...$('projContainer').options].forEach(o => { o.textContent = `${CONTAINER_NAMES[o.value]} · ${sizes[o.value]})`; });
+    }
 
     // Fecha de hoy en hora local (evita que en Argentina aparezca el día anterior o el siguiente)
     function todayLocal() {
@@ -80,16 +138,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const aspect = imageRatio && imageRatio !== containerRatio ? `${container}-${imageRatio}` : container;
 
         // 4. Idioma: AUDIO-SUBS[-CCAP][-OCAP]. Subtítulos quemados van en minúsculas.
-        let subs = $('subLanguage').value;
+        updateContainerLabels();
+        let subs = comboCode('subLanguage');
         if (subs !== 'XX' && $('subType').value === 'burned') subs = subs.toLowerCase();
-        const language = [$('audioLanguage').value, subs];
+        const language = [comboCode('audioLanguage'), subs];
         if ($('ccap').checked) language.push('CCAP');
         if ($('ocap').checked) language.push('OCAP');
 
         // 5. Territorio y calificación (AR-13)
         const rating = clean($('rating').value);
         if (rating === 'XX') notes.push('No uses XX como calificación: si no tiene, dejá el campo vacío.');
-        const territory = rating && rating !== 'XX' ? `${$('territory').value}-${rating}` : $('territory').value;
+        const terr = comboCode('territory');
+        const territory = rating && rating !== 'XX' ? `${terr}-${rating}` : terr;
 
         // 6. Audio (51-HI-VI-ATMOS)
         const isSilent = $('audioType').value === 'MOS';
@@ -146,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     $('resetDcpBtn').addEventListener('click', () => {
         form.reset();
-        document.querySelectorAll('.lang-select').forEach(s => { s.value = s.dataset.default; });
+        Object.entries(COMBOS).forEach(([id, cfg]) => setCombo(id, cfg.def));
         $('date').value = todayLocal();
         buildName();
     });

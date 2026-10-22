@@ -1218,3 +1218,27 @@
 /* "hidden" siempre oculta, aunque el elemento tenga display: flex o grid */
 [hidden] { display: none !important; }
 .peso-grid .tool-result { margin-top: 0; }
+
+/* Campos con autocompletado (DCP) */
+.combo-hint {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--deep-blue) !important;
+    font-weight: 700;
+}
+
+.code-combo.invalid + datalist + .combo-hint {
+    color: #e74c3c !important;
+}
+
+/* Mover marcas (calculadora de timecode) */
+.shift-panel { margin-top: 25px; }
+.panel-intro { text-align: left !important; margin: 0 !important; font-size: 0.9rem; }
+.shift-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+.tc-row-2 { grid-template-columns: 120px 1fr; }
+.shift-panel td.empty { text-align: center; color: #999; padding: 20px; }
+.shift-panel td.moved { color: var(--deep-blue); font-weight: 700; }
+.shift-panel tr.bad td { color: #e74c3c; }

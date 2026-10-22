@@ -141,12 +141,16 @@
                         <div class="dcp-form-grid">
                             <div class="input-group">
                                 <label for="audioLanguage">Idioma del audio</label>
-                                <select id="audioLanguage" class="lang-select" data-default="ES"></select>
+                                <input type="text" id="audioLanguage" class="code-combo" list="audioLanguageList" placeholder="Escribí: argentina, inglés, LAS…" autocomplete="off" spellcheck="false">
+                                <datalist id="audioLanguageList"></datalist>
+                                <small class="combo-hint" id="audioLanguageHint"></small>
                             </div>
 
                             <div class="input-group">
                                 <label for="subLanguage">Idioma de los subtítulos</label>
-                                <select id="subLanguage" class="lang-select" data-default="XX" data-none="Sin subtítulos (XX)"></select>
+                                <input type="text" id="subLanguage" class="code-combo" list="subLanguageList" placeholder="Escribí: inglés, ninguno, XX…" autocomplete="off" spellcheck="false">
+                                <datalist id="subLanguageList"></datalist>
+                                <small class="combo-hint" id="subLanguageHint"></small>
                             </div>
 
                             <div class="input-group">
@@ -170,24 +174,9 @@
                         <div class="dcp-form-grid">
                             <div class="input-group">
                                 <label for="territory">Territorio</label>
-                                <select id="territory">
-                                    <option value="AR">AR · Argentina</option>
-                                    <option value="UY">UY · Uruguay</option>
-                                    <option value="CL">CL · Chile</option>
-                                    <option value="BR">BR · Brasil</option>
-                                    <option value="MX">MX · México</option>
-                                    <option value="CO">CO · Colombia</option>
-                                    <option value="PE">PE · Perú</option>
-                                    <option value="VE">VE · Venezuela</option>
-                                    <option value="ES">ES · España</option>
-                                    <option value="FR">FR · Francia</option>
-                                    <option value="DE">DE · Alemania</option>
-                                    <option value="IT">IT · Italia</option>
-                                    <option value="GB">GB · Reino Unido</option>
-                                    <option value="US">US · Estados Unidos</option>
-                                    <option value="INT-TD">INT-TD · Internacional con textos</option>
-                                    <option value="INT-TL">INT-TL · Internacional sin textos (textless)</option>
-                                </select>
+                                <input type="text" id="territory" class="code-combo" list="territoryList" placeholder="Escribí: argentina, méxico, INT…" autocomplete="off" spellcheck="false">
+                                <datalist id="territoryList"></datalist>
+                                <small class="combo-hint" id="territoryHint"></small>
                             </div>
 
                             <div class="input-group">
@@ -275,7 +264,7 @@
 
 
     <script src="../js/main.js?v=20261020"></script>
-    <script src="../js/tools/dcp-generator.js?v=20261020"></script>
+    <script src="../js/tools/dcp-generator.js?v=20261022"></script>
 </body>
 
 </html>

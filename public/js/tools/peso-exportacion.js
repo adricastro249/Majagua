@@ -43,15 +43,30 @@ document.addEventListener('DOMContentLoaded', () => {
         return $('resolution').value.split('x').map(Number);
     }
 
-    // "1:30:00", "90:00", "45" (minutos) -> segundos
+    // Duración en formato hh:mm:ss:ff (los frames se cuentan según el frame rate elegido).
+    // También acepta hh:mm:ss, mm:ss o solo números ("00005202" = 00:00:52:02).
     function durationSeconds() {
         const raw = $('duration').value.trim();
         if (!raw) return 0;
-        const parts = raw.split(':').map(Number);
-        if (parts.some(n => !Number.isFinite(n) || n < 0)) return NaN;
-        if (parts.length === 1) return parts[0] * 60;
+        const parts = raw.split(/[:;.]/).map(Number);
+        if (parts.length > 4 || parts.some(n => !Number.isFinite(n) || n < 0)) return NaN;
+        const nominal = Math.round(fpsValue());
+        if (parts.length === 4) {
+            const [h, m, s, f] = parts;
+            if (m > 59 || s > 59 || f >= nominal) return NaN;
+            return h * 3600 + m * 60 + s + f / fpsValue();
+        }
         return parts.reduce((acc, n) => acc * 60 + n, 0);
     }
+
+    // Mientras se escriben solo números, se agregan los dos puntos: 00005202 -> 00:00:52:02
+    $('duration').addEventListener('input', (e) => {
+        const el = e.target;
+        if (e.inputType && e.inputType.startsWith('delete')) return;   // no molestar al borrar
+        const digits = el.value.replace(/\D/g, '').slice(0, 8);
+        // Solo si viene en el formato de la máscara (grupos de 2 dígitos); "1:30:00" escrito a mano se respeta
+        if (/^(\d{2}:)*\d+$/.test(el.value)) el.value = (digits.match(/.{1,2}/g) || []).join(':');
+    }, true);
 
     function videoMbps(key, w, h, fps) {
         const c = CODECS[key];
