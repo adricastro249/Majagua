@@ -82,3 +82,16 @@
 
 /* Textos dentro de los paneles claros */
 .tool-panel p, .tool-panel .panel-intro, .tool-panel small, .controls-wrapper p { color: #2D5266 !important; }
+
+.dcp-form legend {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 14px;
+    font-weight: 700;
+    color: var(--deep-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+.dcp-form-grid { clear: both; }
