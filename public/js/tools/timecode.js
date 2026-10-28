@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         $('sumResult').textContent = TC.framesToTC(total, key);
         $('sumSub').textContent = errors
-            ? `${errors} línea(s) con errores no se suman (pasá el mouse para ver el detalle)`
+            ? `${errors} línea(s) con errores no se suman (pasa el mouse para ver el detalle)`
             : describe(total, key);
     }
 

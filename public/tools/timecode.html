@@ -5,32 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Timecode online (drop-frame) | Majagua Tools</title>
-    <meta name="description" content="Sumá y restá timecode, calculá duraciones entre In y Out, convertí frames a TC y cambiá de frame rate. Soporta 23.976, 24, 25, 29.97 DF y 59.94 DF.">
+    <meta name="description" content="Suma y resta timecode, calcula duraciones entre In y Out, convierte frames a TC y cambia de frame rate. Soporta 23.976, 24, 25, 29.97 DF y 59.94 DF.">
     <link rel="canonical" href="https://majaguaproducciones.com/tools/timecode.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Majagua Producciones">
     <meta property="og:title" content="Calculadora de Timecode online (drop-frame) | Majagua Tools">
-    <meta property="og:description" content="Sumá y restá timecode, calculá duraciones entre In y Out, convertí frames a TC y cambiá de frame rate. Soporta 23.976, 24, 25, 29.97 DF y 59.94 DF.">
+    <meta property="og:description" content="Suma y resta timecode, calcula duraciones entre In y Out, convierte frames a TC y cambia de frame rate. Soporta 23.976, 24, 25, 29.97 DF y 59.94 DF.">
     <meta property="og:url" content="https://majaguaproducciones.com/tools/timecode.html">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css?v=20261020">
-    <link rel="stylesheet" href="../css/tools.css?v=20261020">
-    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
 </head>
 
 <body>
     <nav data-layout="nav"></nav>
-    <script src="../js/layout.js?v=20261020"></script>
+    <script src="../js/layout.js"></script>
 
     <header data-layout="tools-hero"></header>
 
-    <section class="tools-section">
+    <section class="tools-section" data-zone-name="Herramienta">
         <div class="container tool-wide">
             <h2 class="section-title">Calculadora de Timecode</h2>
-            <p>Sumá y restá duraciones, convertí frames a timecode y pasá de un frame rate a otro. Funciona con
-                drop-frame (29.97 y 59.94 DF). Podés escribir solo números, como en Resolve: <code>1000</code> = 00:00:10:00.</p>
+            <p>Suma y resta duraciones, convierte frames a timecode y pasa de un frame rate a otro. Funciona con
+                drop-frame (29.97 y 59.94 DF). Puedes escribir solo números, como en Resolve: <code>1000</code> = 00:00:10:00.</p>
 
             <div class="tool-toolbar">
                 <div class="input-group">
@@ -110,7 +112,7 @@
             <!-- MOVER MARCAS EN UN ARCHIVO -->
             <div class="tool-panel shift-panel" id="shiftPanel">
                 <h3><i class="fas fa-arrows-left-right"></i> Mover las marcas de un archivo</h3>
-                <p class="panel-intro">Subí un EDL, XML (Premiere / FCP 7), CSV o TXT con timecodes y movelos todos juntos. Sirve cuando
+                <p class="panel-intro">Sube un EDL, XML (Premiere / FCP 7), CSV o TXT con timecodes y movelos todos juntos. Sirve cuando
                     agregaste o sacaste material y las marcas quedaron corridas. Usa el frame rate elegido arriba.</p>
 
                 <div class="shift-grid">
@@ -121,7 +123,7 @@
                     </div>
 
                     <div class="input-group">
-                        <label for="shiftMode">Qué querés hacer</label>
+                        <label for="shiftMode">Qué quieres hacer</label>
                         <select id="shiftMode">
                             <option value="offset">Mover todo una cantidad de tiempo</option>
                             <option value="start">Que el primer TC pase a ser…</option>
@@ -156,7 +158,7 @@
                 <div class="table-scroll">
                     <table class="data-table">
                         <thead><tr><th>Línea</th><th class="num">Antes</th><th class="num">Después</th></tr></thead>
-                        <tbody id="shiftPreview"><tr><td colspan="3" class="empty">Subí un archivo para ver la vista previa.</td></tr></tbody>
+                        <tbody id="shiftPreview"><tr><td colspan="3" class="empty">Sube un archivo para ver la vista previa.</td></tr></tbody>
                     </table>
                 </div>
 
@@ -168,11 +170,9 @@
     </section>
 
     <div data-layout="footer"></div>
-
-    <script src="../js/main.js?v=20261020"></script>
-    <script src="../js/tools/tc-lib.js?v=20261020"></script>
-    <script src="../js/tools/timecode.js?v=20261022"></script>
-    <script src="../js/tools/tc-shift.js?v=20261022"></script>
+    <script src="../js/tools/tc-lib.js"></script>
+    <script src="../js/tools/timecode.js"></script>
+    <script src="../js/tools/tc-shift.js"></script>
 </body>
 
 </html>

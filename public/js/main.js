@@ -1,56 +1,36 @@
-// ==========================================
-// MAJAGUA PRODUCCIONES - JS COMÚN A TODAS LAS PÁGINAS
-// (El código de cada tool vive en su propia página.)
-// ==========================================
+// Majagua v2: medidor de profundidad y barra superior.
+(function () {
+  const MAX_DEPTH = 400; // metros al llegar al fondo de la página
 
-document.addEventListener('DOMContentLoaded', () => {
+  const top = document.querySelector('.top');
+  const depthEl = document.querySelector('[data-depth]');
+  const zoneEl = document.querySelector('[data-zone]');
+  const track = document.querySelector('.gauge-track');
+  const mark = document.querySelector('.gauge-mark');
+  const zones = [...document.querySelectorAll('[data-zone-name]')];
+  const hero = document.querySelector('.hero');
 
-    // ------------------------------------------
-    // MENÚ HAMBURGUESA (MÓVIL)
-    // ------------------------------------------
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-links');
+  let ticking = false;
 
-    if (hamburger && navMenu) {
-        const setOpen = (open) => {
-            hamburger.classList.toggle('active', open);
-            navMenu.classList.toggle('active', open);
-            hamburger.setAttribute('aria-expanded', String(open));
-            hamburger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-        };
+  function update() {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const f = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
 
-        hamburger.addEventListener('click', () => {
-            setOpen(!navMenu.classList.contains('active'));
-        });
+    depthEl.textContent = String(Math.round(f * MAX_DEPTH)).padStart(3, '0');
+    mark.style.setProperty('--y', (f * (track.offsetHeight - 3)) + 'px');
 
-        // Cerrar al elegir un link (menos "Tools", que abre el submenú)
-        navMenu.querySelectorAll('a:not(.dropbtn)').forEach(link => {
-            link.addEventListener('click', () => setOpen(false));
-        });
+    const mid = innerHeight / 2;
+    let current = zones[0];
+    for (const z of zones) if (z.getBoundingClientRect().top <= mid) current = z;
+    zoneEl.textContent = current.dataset.zoneName;
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') setOpen(false);
-        });
-    }
+    top.classList.toggle('is-solid', hero.getBoundingClientRect().bottom < 80);
+    ticking = false;
+  }
 
-    // ------------------------------------------
-    // FILTROS DE CATEGORÍAS (portafolio y perfiles)
-    // Botones: <button class="filter-btn" data-filter="categoria">
-    // Tarjetas: <div class="card categoria">
-    // ------------------------------------------
-    const filterButtons = document.querySelectorAll('.filter-btn[data-filter]');
-
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const category = btn.dataset.filter;
-
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            document.querySelectorAll('.card').forEach(card => {
-                const visible = category === 'all' || card.classList.contains(category);
-                card.style.display = visible ? '' : 'none';
-            });
-        });
-    });
-});
+  addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  addEventListener('resize', update);
+  update();
+})();

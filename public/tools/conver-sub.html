@@ -5,31 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de Subtítulos SRT, VTT y TXT online | Majagua Tools</title>
-    <meta name="description" content="Convertí subtítulos entre SRT, WebVTT y texto plano en el navegador. Gratis, sin registro y sin subir tus archivos a ningún servidor.">
+    <meta name="description" content="Convierte subtítulos entre SRT, WebVTT y texto plano en el navegador. Gratis, sin registro y sin subir tus archivos a ningún servidor.">
     <link rel="canonical" href="https://majaguaproducciones.com/tools/conver-sub.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Majagua Producciones">
     <meta property="og:title" content="Conversor de Subtítulos SRT, VTT y TXT online | Majagua Tools">
-    <meta property="og:description" content="Convertí subtítulos entre SRT, WebVTT y texto plano en el navegador. Gratis, sin registro y sin subir tus archivos a ningún servidor.">
+    <meta property="og:description" content="Convierte subtítulos entre SRT, WebVTT y texto plano en el navegador. Gratis, sin registro y sin subir tus archivos a ningún servidor.">
     <meta property="og:url" content="https://majaguaproducciones.com/tools/conver-sub.html">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css?v=20261020">
-    <link rel="stylesheet" href="../css/tools.css?v=20261020">
-    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
 </head>
 
 <body>
     <nav data-layout="nav"></nav>
-    <script src="../js/layout.js?v=20261020"></script>
+    <script src="../js/layout.js"></script>
 
     <header data-layout="tools-hero"></header>
 
-    <section class="tools-section">
+    <section class="tools-section" data-zone-name="Herramienta">
         <div class="container">
             <h2 class="section-title">Conversor de Subtítulos SRT ↔ VTT ↔ TXT</h2>
-            <p>Subí un archivo y convertilo al formato que necesites. Todo se procesa en tu navegador:
+            <p>Sube un archivo y convertilo al formato que necesites. Todo se procesa en tu navegador:
                 tus subtítulos no se suben a ningún servidor.</p>
 
             <div class="controls">
@@ -56,11 +58,6 @@
 
 
     <div data-layout="footer"></div>
-
-
-
-    
-    <script src="../js/main.js?v=20261020"></script>
     <script>
         (function () {
             const fileInput = document.getElementById('fileInput');
@@ -151,7 +148,7 @@
             });
 
             document.getElementById('convertButton').addEventListener('click', () => {
-                if (!originalText) { setStatus('Primero subí un archivo de subtítulos.', true); return; }
+                if (!originalText) { setStatus('Primero sube un archivo de subtítulos.', true); return; }
 
                 const format = formatSelect.value;
                 const cues = parseCues(originalText);
@@ -177,4 +174,4 @@
     </script>
 </body>
 
-</html>
+</html>

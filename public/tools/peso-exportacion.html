@@ -5,31 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de peso de exportación ProRes, DNxHR y H.264 | Majagua Tools</title>
-    <meta name="description" content="Calculá cuánto ocupa un video según códec (ProRes 422 HQ, 4444, DNxHR, H.264, H.265, DCP), resolución, frame rate y duración. Ideal para presupuestar discos y entregas.">
+    <meta name="description" content="Calcula cuánto ocupa un video según códec (ProRes 422 HQ, 4444, DNxHR, H.264, H.265, DCP), resolución, frame rate y duración. Ideal para presupuestar discos y entregas.">
     <link rel="canonical" href="https://majaguaproducciones.com/tools/peso-exportacion.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Majagua Producciones">
     <meta property="og:title" content="Calculadora de peso de exportación ProRes, DNxHR y H.264 | Majagua Tools">
-    <meta property="og:description" content="Calculá cuánto ocupa un video según códec (ProRes 422 HQ, 4444, DNxHR, H.264, H.265, DCP), resolución, frame rate y duración. Ideal para presupuestar discos y entregas.">
+    <meta property="og:description" content="Calcula cuánto ocupa un video según códec (ProRes 422 HQ, 4444, DNxHR, H.264, H.265, DCP), resolución, frame rate y duración. Ideal para presupuestar discos y entregas.">
     <meta property="og:url" content="https://majaguaproducciones.com/tools/peso-exportacion.html">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css?v=20261020">
-    <link rel="stylesheet" href="../css/tools.css?v=20261020">
-    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
 </head>
 
 <body>
     <nav data-layout="nav"></nav>
-    <script src="../js/layout.js?v=20261020"></script>
+    <script src="../js/layout.js"></script>
 
     <header data-layout="tools-hero"></header>
 
-    <section class="tools-section">
+    <section class="tools-section" data-zone-name="Herramienta">
         <div class="container tool-wide">
             <h2 class="section-title">Calculadora de Peso de Exportación</h2>
-            <p>Estimá cuánto va a ocupar una exportación según códec, resolución, frame rate y duración. Ideal para
+            <p>Estima cuánto va a ocupar una exportación según códec, resolución, frame rate y duración. Ideal para
                 presupuestar discos, backups y entregas.</p>
 
             <div class="tool-grid peso-grid">
@@ -110,7 +112,7 @@
                         <div class="input-group">
                             <label for="duration">Duración</label>
                             <input type="text" id="duration" class="tc-input" value="01:30:00:00" placeholder="hh:mm:ss:ff" inputmode="numeric">
-                            <small>Escribí solo números: 00005202 = 00:00:52:02</small>
+                            <small>Escribe solo números: 00005202 = 00:00:52:02</small>
                         </div>
                     </div>
 
@@ -167,9 +169,7 @@
     </section>
 
     <div data-layout="footer"></div>
-
-    <script src="../js/main.js?v=20261020"></script>
-    <script src="../js/tools/peso-exportacion.js?v=20261022"></script>
+    <script src="../js/tools/peso-exportacion.js"></script>
 </body>
 
 </html>

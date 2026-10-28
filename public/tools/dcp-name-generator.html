@@ -5,33 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Nombres DCP (ISDCF) | Majagua Tools</title>
-    <meta name="description" content="Generá el nombre de tu DCP según la convención ISDCF: tipo de contenido, aspect ratio, idioma y subtítulos, territorio, audio, estándar SMPTE o Interop y OV/VF.">
+    <meta name="description" content="Genera el nombre de tu DCP según la convención ISDCF: tipo de contenido, aspect ratio, idioma y subtítulos, territorio, audio, estándar SMPTE o Interop y OV/VF.">
     <link rel="canonical" href="https://majaguaproducciones.com/tools/dcp-name-generator.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Majagua Producciones">
     <meta property="og:title" content="Generador de Nombres DCP (ISDCF) | Majagua Tools">
-    <meta property="og:description" content="Generá el nombre de tu DCP según la convención ISDCF: tipo de contenido, aspect ratio, idioma y subtítulos, territorio, audio, estándar SMPTE o Interop y OV/VF.">
+    <meta property="og:description" content="Genera el nombre de tu DCP según la convención ISDCF: tipo de contenido, aspect ratio, idioma y subtítulos, territorio, audio, estándar SMPTE o Interop y OV/VF.">
     <meta property="og:url" content="https://majaguaproducciones.com/tools/dcp-name-generator.html">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css?v=20261020">
-    <link rel="stylesheet" href="../css/tools.css?v=20261020">
-    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
 </head>
 <body>
     <nav data-layout="nav"></nav>
-    <script src="../js/layout.js?v=20261020"></script>
+    <script src="../js/layout.js"></script>
 
     <header data-layout="tools-hero"></header>
 
 
 
-   <section class="tools-section">
+   <section class="tools-section" data-zone-name="Herramienta">
         <div class="container">
             <h2 class="section-title">Generador de Nombres DCP (ISDCF)</h2>
-            <p>Armá el nombre de tu paquete de cine digital según la convención ISDCF. El nombre se actualiza mientras
-                completás los campos.</p>
+            <p>Arma el nombre de tu paquete de cine digital según la convención ISDCF. El nombre se actualiza mientras
+                completas los campos.</p>
 
             <div class="dcp-wrapper">
 
@@ -141,14 +143,14 @@
                         <div class="dcp-form-grid">
                             <div class="input-group">
                                 <label for="audioLanguage">Idioma del audio</label>
-                                <input type="text" id="audioLanguage" class="code-combo" list="audioLanguageList" placeholder="Escribí: argentina, inglés, LAS…" autocomplete="off" spellcheck="false">
+                                <input type="text" id="audioLanguage" class="code-combo" list="audioLanguageList" placeholder="Escribe: argentina, inglés, LAS…" autocomplete="off" spellcheck="false">
                                 <datalist id="audioLanguageList"></datalist>
                                 <small class="combo-hint" id="audioLanguageHint"></small>
                             </div>
 
                             <div class="input-group">
                                 <label for="subLanguage">Idioma de los subtítulos</label>
-                                <input type="text" id="subLanguage" class="code-combo" list="subLanguageList" placeholder="Escribí: inglés, ninguno, XX…" autocomplete="off" spellcheck="false">
+                                <input type="text" id="subLanguage" class="code-combo" list="subLanguageList" placeholder="Escribe: inglés, ninguno, XX…" autocomplete="off" spellcheck="false">
                                 <datalist id="subLanguageList"></datalist>
                                 <small class="combo-hint" id="subLanguageHint"></small>
                             </div>
@@ -174,7 +176,7 @@
                         <div class="dcp-form-grid">
                             <div class="input-group">
                                 <label for="territory">Territorio</label>
-                                <input type="text" id="territory" class="code-combo" list="territoryList" placeholder="Escribí: argentina, méxico, INT…" autocomplete="off" spellcheck="false">
+                                <input type="text" id="territory" class="code-combo" list="territoryList" placeholder="Escribe: argentina, méxico, INT…" autocomplete="off" spellcheck="false">
                                 <datalist id="territoryList"></datalist>
                                 <small class="combo-hint" id="territoryHint"></small>
                             </div>
@@ -255,16 +257,13 @@
                 </form>
 
                 <p class="dcp-ref">Basado en la <a href="https://www.isdcf.com/registry/general/" target="_blank" rel="noopener">Digital Cinema Naming Convention de ISDCF</a>.
-                    Confirmá siempre los códigos con la distribuidora o el laboratorio.</p>
+                    Confirma siempre los códigos con la distribuidora o el laboratorio.</p>
             </div>
         </div>
     </section>
 
     <div data-layout="footer"></div>
-
-
-    <script src="../js/main.js?v=20261020"></script>
-    <script src="../js/tools/dcp-generator.js?v=20261022"></script>
+    <script src="../js/tools/dcp-generator.js"></script>
 </body>
 
 </html>

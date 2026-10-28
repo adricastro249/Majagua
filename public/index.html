@@ -1,201 +1,169 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Majagua Producciones | Ecosistema Creativo</title>
-    <meta name="description" content="Majagua Producciones: Post-producción cinematográfica, corrección de color (DaVinci Resolve) y desarrollo web en Buenos Aires. Creadoras del podcast Cine Arbitrario.">
-    <link rel="canonical" href="https://majaguaproducciones.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Majagua Producciones">
-    <meta property="og:title" content="Majagua Producciones | Ecosistema Creativo">
-    <meta property="og:description" content="Majagua Producciones: Post-producción cinematográfica, corrección de color (DaVinci Resolve) y desarrollo web en Buenos Aires. Creadoras del podcast Cine Arbitrario.">
-    <meta property="og:url" content="https://majaguaproducciones.com/">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=20261020">
-    <link rel="icon" type="image/png" href="css/img/Icon.webp">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Majagua Producciones</title>
+  <meta name="description" content="Majagua Producciones: postproducción, color en DaVinci Resolve y desarrollo web en Buenos Aires. Creadoras del podcast Cine Arbitrario.">
+  <link rel="canonical" href="https://majaguaproducciones.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Majagua Producciones">
+  <meta property="og:title" content="Majagua Producciones">
+  <meta property="og:description" content="Postproducción, color y desarrollo web en Buenos Aires.">
+  <meta property="og:url" content="https://majaguaproducciones.com/">
+  <link rel="icon" type="image/png" href="img/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <nav data-layout="nav"></nav>
-    <script src="js/layout.js?v=20261020"></script>
+  <a class="skip" href="#hacemos">Saltar al contenido</a>
+  <nav data-layout="nav"></nav>
+  <script src="js/layout.js"></script>
 
-
-
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <h1>MAJAGUA <br> PRODUCCIONES</h1>
-            <p>Narrativa visual, Desarrollo Web & Tecnología</p>
+  <main>
+    <section id="superficie" class="hero" data-zone-name="Superficie">
+      <!-- La ilustración separada en planos: cada uno se mueve a su velocidad (data-k al bajar, data-m con el mouse) -->
+      <div class="capas" aria-hidden="true">
+        <img src="img/fondo/plano-0.svg" alt="" data-k="0.45" data-m="6">
+        <img src="img/fondo/plano-1.svg" alt="" data-k="0.32" data-m="12">
+        <img src="img/fondo/plano-2.svg" alt="" data-k="0.18" data-m="20">
+        <img src="img/fondo/criaturas.svg" alt="" data-k="0.1" data-m="30">
+        <img src="img/fondo/plano-3.svg" alt="" data-k="0" data-m="36">
+      </div>
+      <div class="wrap">
+        <h1>Majagua</h1>
+        <p class="hero-lead">Postproducción, color y desarrollo web. Un estudio de dos, en Buenos Aires.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#proyectos">Ver proyectos</a>
+          <a class="btn btn-line" href="#contacto">Escríbenos</a>
         </div>
-    </header>
-
-    <section id="team" class="team">
-        <h2 class="section-title">Quiénes Somos</h2>
-        <div class="team-grid">
-
-            <div class="member">
-                <a href="adriana.html">
-                    <div class="member-photo" style="background-image: url('css/img/FotoAdriana.jpg');">
-                    </div>
-                    <h3>
-                        Adriana Castro
-                    </h3>
-                    <span class="member-title">Editora Audiovisual OnLine - Offline & Developer</span>
-                    <p class="member-bio">Editora online experta en DaVinci Resolve. Apasionada por el código, las
-                        criptomonedas y crear soluciones automatizadas.</p>
-                </a>
-                <div class="socials">
-                    <a href="https://www.linkedin.com/in/adricastro249/" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/adricastro249/" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/adricastro249" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                    <a href="https://vimeo.com/adricastro249" target="_blank"><i class="fab fa-vimeo"></i></a>
-                </div>
-            </div>
-
-            <div class="member">
-                <a href="mariana.html">
-                    <div class="member-photo" style="background-image: url('css/img/FotoMariana.JPG');">
-                    </div>
-                    <h3>
-                        Mariana Rojas Barroso
-                    </h3>
-                    <span class="member-title">Directora, Coordinadora & Productora</span>
-                    <p class="member-bio">Cineasta enfocada en la narrativa y la gestión de proyectos. Co-creadora
-                        de
-                        Cine
-                        Arbitrario y visión creativa de Majagua.</p>
-                </a>
-                <div class="socials">
-                    <a href="https://www.linkedin.com/in/marianarojasbarroso/" target="_blank"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/marianarojasba" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-        </div>
+      </div>
     </section>
 
-    <section id="ecosistema" class="portfolio">
-        <div class="container">
-            <h2 class="section-title">Ecosistema Creativo</h2>
+    <section id="hacemos" class="block" data-zone-name="Qué hacemos">
+      <div class="wrap">
+        <h2>Qué hacemos</h2>
+        <dl class="services">
+          <div><dt>Edición online y offline</dt><dd>Conformado, finishing y entrega de masters para series, cine y publicidad.</dd></div>
+          <div><dt>Color en DaVinci Resolve</dt><dd>Corrección y look de color, del primer balance al DCP.</dd></div>
+          <div><dt>Dirección y producción</dt><dd>Desarrollo de proyectos, coordinación de rodajes y narrativa.</dd></div>
+          <div><dt>Desarrollo web</a></dt><dd>Sitios, tiendas y apps a medida, y scripts para automatizar la post. <a href="portfolio-web.html">Ver sitios que hicimos</a>.</dd></div>
+        </dl>
+      </div>
+    </section>
 
-            <div class="projects-grid">
-
-                <a href="https://www.cinearbitrario.com/" target="_blank" class="card">
-                    <div class="card-img">
-                        <img loading="lazy" src="css/img/cinearbitrario.png" alt="Podcast">
-                        <div class="card-icon"><i class="fas fa-microphone"></i></div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Cine Arbitrario</h3>
-                        <span class="card-role">Podcast & Contenido</span>
-                        <p class="card-desc" style="font-size:0.8rem; color:#888; margin-top: 5px;">Escuchar ahora
-                            &rarr;</p>
-                    </div>
-                </a>
-                <a href="https://www.rachagym.com/" target="_blank" class="card">
-                    <div class="card-img">
-                        <img loading="lazy" src="css/img/rachin-512-FN.webp" alt="Racha Gym">
-                        <div class="card-icon"><i class="fas fa-dumbbell"></i></div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Racha Gym</h3>
-                        <span class="card-role">Web App (Next.js)</span>
-
-                        <p class="card-desc" style="font-size:0.8rem; color:#888; margin-top: 5px;">
-                            Aplicación fitness en desarrollo con tracking de hábitos.
-                        </p>
-                    </div>
-                </a>
-
-                <a href="tools.html" class="card">
-                    <div class="card-img">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800"
-                            alt="Tools">
-                        <div class="card-icon"><i class="fas fa-tools"></i></div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Majagua Tools</h3>
-                        <span class="card-role">Herramientas gratuitas</span>
-                        <p class="card-desc" style="font-size:0.8rem; color:#888; margin-top: 5px;">
-                            Usar Herramientas &rarr;
-                        </p>
-                    </div>
-                </a>
-
-
-                <a href="https://opensea.io/0x2106f117c080aaeb697d27dbc38c8bb84ac359ba" target="_blank" class="card">
-                    <div class="card-img">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=800"
-                            alt="NFT">
-                        <div class="card-icon"><i class="fas fa-cube"></i></div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Colección NFT</h3>
-                        <span class="card-role">Blockchain & Arte</span>
-                        <p class="card-desc" style="font-size:0.8rem; color:#888; margin-top: 5px;">
-                            Ver colección &rarr;
-                        </p>
-                    </div>
-                </a>
-                
-              
-
-                <a href="portfolio-web.html" class="card">
-    <div class="card-img">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800"
-             alt="Desarrollo Web">
-        <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
-    </div>
-    <div class="card-body">
-        <h3>Archivo Digital</h3>
-        <span class="card-role">Desarrollo Web & Apps</span>
-        <p class="card-desc" style="font-size:0.8rem; color:#888; margin-top: 5px;">
-            Colección de proyectos implementados (2020-2024).
-            &rarr;
-        </p>
-    </div>
-</a>
-
-
+    <section id="nosotras" class="block" data-zone-name="Nosotras">
+      <div class="wrap">
+        <h2>Nosotras</h2>
+        <div class="people">
+          <article class="person">
+            <img class="person-photo" src="img/adriana.webp" alt="Adriana Castro" width="720" height="717" loading="lazy">
+            <h3>Adriana Castro</h3>
+            <p class="person-role">Editora online y offline, colorista y desarrolladora</p>
+            <p>Trabaja en DaVinci Resolve y escribe el código que le ahorra horas al resto del equipo.</p>
+            <p class="credits">Créditos: Gutierrez is mai neim, El Encargado, Homo Argentum, Argentina ’78, PlayBack, Familia a la deriva.</p>
+            <div class="person-actions">
+              <a class="btn btn-light" href="adriana.html">Ver portafolio</a>
+              <div class="icon-links">
+                <a href="https://www.linkedin.com/in/adricastro249/" target="_blank" rel="noopener" aria-label="LinkedIn de Adriana" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://github.com/adricastro249/" target="_blank" rel="noopener" aria-label="GitHub de Adriana" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                <a href="https://vimeo.com/adricastro249" target="_blank" rel="noopener" aria-label="Vimeo de Adriana" title="Vimeo"><i class="fa-brands fa-vimeo-v" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/adricastro249" target="_blank" rel="noopener" aria-label="Instagram de Adriana" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+              </div>
             </div>
+          </article>
+
+          <article class="person">
+            <img class="person-photo" src="img/mariana.webp" alt="Mariana Rojas Barroso" width="720" height="720" loading="lazy">
+            <h3>Mariana Rojas Barroso</h3>
+            <p class="person-role">Directora, coordinadora y productora</p>
+            <p>Cineasta enfocada en la narrativa y la gestión de proyectos. Co-creadora de Cine Arbitrario.</p>
+            <p class="credits">Créditos: Coppola 2, PlayBack, Oda Amarilla, Leonidas, Parque Central, Muerte en Berruecos.</p>
+            <div class="person-actions">
+              <a class="btn btn-light" href="mariana.html">Ver portafolio</a>
+              <div class="icon-links">
+                <a href="https://www.linkedin.com/in/marianarojasbarroso/" target="_blank" rel="noopener" aria-label="LinkedIn de Mariana" title="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/marianarojasba" target="_blank" rel="noopener" aria-label="Instagram de Mariana" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
 
 
-    <section id="clients" class="clients">
-        <p>Confían en nosotras</p>
-        <div class="logos-grid">
-            <a href="https://tatianet.com/" target="_blank">
-                <img loading="lazy" src="css/img/logos/TATIANET_LogoFinal.webp" alt="Cliente Tatianet">
-            </a>
-            <a href="https://www.youtube.com/@lataguarafilmica" target="_blank">
-                <img loading="lazy" src="css/img/logos/logo-taguara-filmica.webp" alt="Cliente Taguara Fílmica">
-            </a>
-            <a href="https://vimeo.com/motonetacine" target="_blank">
-                <img loading="lazy" src="css/img/logos/MotoNegro.webp" alt="Cliente Motoneta Cine">
-            </a>
-            <a href="https://gogreenargentina.com/" target="_blank">
-                <img loading="lazy" src="css/img/logos/GoGreen-Logo.webp" alt="Cliente Go Green">
-            </a>
-            </a>
-            <a href="https://elsenseigrowshop.com/" target="_blank">
-                <img loading="lazy" src="css/img/logos/VERSION-LOGO-EL-SENSEI-5.webp" alt="Cliente El Sensei">
-            </a>
+    <section id="proyectos" class="block" data-zone-name="Proyectos">
+      <div class="wrap">
+        <h2>Proyectos propios</h2>
+        <ul class="rows">
+          <li><a href="https://www.cinearbitrario.com/" target="_blank" rel="noopener">
+            <img class="row-icon" src="img/cine-arbitrario.webp" alt="" width="64" height="64" loading="lazy">
+            <span class="row-name">Cine Arbitrario</span>
+            <span class="row-desc">Nuestro podcast de cine. Escucha los episodios.</span></a></li>
+          <li><a href="https://www.rachagym.com/" target="_blank" rel="noopener">
+            <img class="row-icon" src="img/racha.webp" alt="" width="64" height="64" loading="lazy">
+            <span class="row-name">Racha Gym</span>
+            <span class="row-desc">App de entrenamiento con seguimiento de hábitos, hecha en Next.js.</span></a></li>
+          <li><a href="https://opensea.io/0x2106f117c080aaeb697d27dbc38c8bb84ac359ba" target="_blank" rel="noopener">
+            <span class="row-icon" aria-hidden="true"><i class="fa-solid fa-cube"></i></span>
+            <span class="row-name">Colección NFT</span>
+            <span class="row-desc">Arte en blockchain, publicado en OpenSea.</span></a></li>
+        </ul>
+
+        <!-- Último episodio de Cine Arbitrario: el reproductor de iVoox se actualiza solo con cada episodio nuevo -->
+        <div class="podcast">
+          <div>
+            <h3>Escucha Cine Arbitrario</h3>
+            <p>Dos amantes del cine recomiendan películas sin pedirle permiso a nadie. Aquí siempre está el episodio más reciente.</p>
+          </div>
+          <iframe src="https://www.ivoox.com/player_es_podcast_2684893_1.html" title="Episodios recientes de Cine Arbitrario" loading="lazy" allow="autoplay"></iframe>
         </div>
+      </div>
     </section>
 
-    <div data-layout="footer"></div>
+    <section id="tools" class="block" data-zone-name="Tools">
+      <div class="wrap">
+        <div class="tools-head">
+          <h2>Tools para post</h2>
+          <p>Gratis, sin registro y todo en tu navegador: tus archivos no se suben a ningún servidor.</p>
+        </div>
 
+        <form class="tc-mini" data-tc-mini onsubmit="return false" aria-label="Calculadora de timecode">
+          <div class="tc-mini-head">
+            <h3>Prueba la calculadora de timecode</h3>
+            <label>Frame rate <select name="fps"></select></label>
+          </div>
+          <div class="tc-mini-row">
+            <input name="a" value="01:00:00:00" inputmode="numeric" aria-label="Primer timecode" spellcheck="false">
+            <select name="op" aria-label="Operación"><option value="+">+</option><option value="-">−</option></select>
+            <input name="b" value="00:12:30:12" inputmode="numeric" aria-label="Segundo timecode" spellcheck="false">
+            <span class="tc-mini-eq" aria-hidden="true">=</span>
+            <output class="tc-mini-out" data-result aria-live="polite">--:--:--:--</output>
+          </div>
+          <p class="tc-mini-sub"><span data-sub></span> <a href="tools/timecode.html">Abrir la calculadora completa</a></p>
+        </form>
 
-    <script src="js/main.js?v=20261020"></script>
+        <ul class="tool-list">
+          <li><a href="tools/timecode.html"><i class="fa-solid fa-clock" aria-hidden="true"></i><b>Calculadora de timecode</b><span>Suma, resta y convierte TC y frames, con drop-frame.</span></a></li>
+          <li><a href="tools/peso-exportacion.html"><i class="fa-solid fa-hard-drive" aria-hidden="true"></i><b>Peso de exportación</b><span>Cuánto ocupa tu master en ProRes, DNxHR, H.264 o DCP.</span></a></li>
+          <li><a href="tools/aspect-ratio.html"><i class="fa-solid fa-crop-simple" aria-hidden="true"></i><b>Aspect ratio</b><span>Simula 1.85, 2.39, 16:9 o 9:16 sobre tus imágenes.</span></a></li>
+          <li><a href="tools/safe-areas.html"><i class="fa-solid fa-vector-square" aria-hidden="true"></i><b>Safe areas y redes</b><span>Zonas seguras de Reels, TikTok y Shorts. Guía PNG para Resolve.</span></a></li>
+          <li><a href="tools/paletas.html"><i class="fa-solid fa-palette" aria-hidden="true"></i><b>Paletas de color</b><span>Saca los HEX de tus referencias visuales.</span></a></li>
+          <li><a href="tools/conver-sub.html"><i class="fa-solid fa-closed-captioning" aria-hidden="true"></i><b>Conversor de subtítulos</b><span>SRT, VTT y TXT, respetando tildes y eñes.</span></a></li>
+          <li><a href="tools/marcadores-resolve.html"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><b>Marcadores de Resolve a notas</b><span>Pasa los marcadores del timeline a una lista con TC.</span></a></li>
+          <li><a href="tools/dcp-name-generator.html"><i class="fa-solid fa-film" aria-hidden="true"></i><b>Nombres DCP</b><span>Arma el nombre del paquete según la convención ISDCF.</span></a></li>
+        </ul>
+        <p class="tools-custom">¿Necesitas una herramienta para tu flujo de trabajo? <a href="mailto:produccionesmajagua@gmail.com?subject=Herramienta%20a%20medida">Cuéntanos qué haces a mano</a>.</p>
+      </div>
+    </section>
+  </main>
 
+  <div data-layout="footer"></div>
+  <script src="js/tools/tc-lib.js"></script>
+  <script src="js/tc-mini.js"></script>
 </body>
-
-</html>
+</html>

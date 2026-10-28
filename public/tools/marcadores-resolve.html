@@ -5,31 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convertir marcadores de DaVinci Resolve a notas (EDL / CSV) | Majagua Tools</title>
-    <meta name="description" content="Pasá los marcadores de tu timeline de DaVinci Resolve (EDL o CSV) a una lista de notas con timecode y minuto del video, lista para mandar al cliente. Exportá a TXT, CSV o PDF.">
+    <meta name="description" content="Pasa los marcadores de tu timeline de DaVinci Resolve (EDL o CSV) a una lista de notas con timecode y minuto del video, lista para mandar al cliente. Exporta a TXT, CSV o PDF.">
     <link rel="canonical" href="https://majaguaproducciones.com/tools/marcadores-resolve.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Majagua Producciones">
     <meta property="og:title" content="Convertir marcadores de DaVinci Resolve a notas (EDL / CSV) | Majagua Tools">
-    <meta property="og:description" content="Pasá los marcadores de tu timeline de DaVinci Resolve (EDL o CSV) a una lista de notas con timecode y minuto del video, lista para mandar al cliente. Exportá a TXT, CSV o PDF.">
+    <meta property="og:description" content="Pasa los marcadores de tu timeline de DaVinci Resolve (EDL o CSV) a una lista de notas con timecode y minuto del video, lista para mandar al cliente. Exporta a TXT, CSV o PDF.">
     <meta property="og:url" content="https://majaguaproducciones.com/tools/marcadores-resolve.html">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css?v=20261020">
-    <link rel="stylesheet" href="../css/tools.css?v=20261020">
-    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
 </head>
 
 <body>
     <nav data-layout="nav"></nav>
-    <script src="../js/layout.js?v=20261020"></script>
+    <script src="../js/layout.js"></script>
 
     <header data-layout="tools-hero"></header>
 
-    <section class="tools-section">
+    <section class="tools-section" data-zone-name="Herramienta">
         <div class="container tool-wide">
             <h2 class="section-title">Marcadores de Resolve a Notas</h2>
-            <p>Convertí los marcadores de tu timeline en una lista de notas lista para mandar al cliente o al equipo. En
+            <p>Convierte los marcadores de tu timeline en una lista de notas lista para mandar al cliente o al equipo. En
                 Resolve: clic derecho en la timeline del Media Pool → <code>Timelines › Export › Timeline Markers to EDL…</code>
                 También acepta el CSV del Edit Index y listas de texto con timecode (por ejemplo, marcadores de Avid).</p>
 
@@ -64,7 +66,7 @@
                     <div class="table-scroll">
                         <table class="data-table markers-table">
                             <thead><tr><th></th><th>Video</th><th>Timecode</th><th>Nota</th></tr></thead>
-                            <tbody id="markerRows"><tr><td colspan="4" class="empty">Subí o pegá tus marcadores.</td></tr></tbody>
+                            <tbody id="markerRows"><tr><td colspan="4" class="empty">Sube o pega tus marcadores.</td></tr></tbody>
                         </table>
                     </div>
                     <label class="inline-check"><input type="checkbox" id="includeTC" checked> Incluir el timecode completo al copiar o descargar</label>
@@ -81,10 +83,8 @@
     </section>
 
     <div data-layout="footer"></div>
-
-    <script src="../js/main.js?v=20261020"></script>
-    <script src="../js/tools/tc-lib.js?v=20261020"></script>
-    <script src="../js/tools/marcadores-resolve.js?v=20261020"></script>
+    <script src="../js/tools/tc-lib.js"></script>
+    <script src="../js/tools/marcadores-resolve.js"></script>
 </body>
 
 </html>

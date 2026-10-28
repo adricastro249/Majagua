@@ -5,33 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Paletas de Color desde Imagen | Majagua Tools</title>
-    <meta name="description" content="Extraé la paleta de colores de cualquier imagen o fotograma y copiá los códigos HEX para tu dirección de arte, pitch o corrección de color.">
+    <meta name="description" content="Extrae la paleta de colores de cualquier imagen o fotograma y copia los códigos HEX para tu dirección de arte, pitch o corrección de color.">
     <link rel="canonical" href="https://majaguaproducciones.com/tools/paletas.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Majagua Producciones">
     <meta property="og:title" content="Generador de Paletas de Color desde Imagen | Majagua Tools">
-    <meta property="og:description" content="Extraé la paleta de colores de cualquier imagen o fotograma y copiá los códigos HEX para tu dirección de arte, pitch o corrección de color.">
+    <meta property="og:description" content="Extrae la paleta de colores de cualquier imagen o fotograma y copia los códigos HEX para tu dirección de arte, pitch o corrección de color.">
     <meta property="og:url" content="https://majaguaproducciones.com/tools/paletas.html">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css?v=20261020">
-    <link rel="stylesheet" href="../css/tools.css?v=20261020">
-    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
 
 </head>
 
 <body>
 
     <nav data-layout="nav"></nav>
-    <script src="../js/layout.js?v=20261020"></script>
+    <script src="../js/layout.js"></script>
 
     <header data-layout="tools-hero"></header>
-    <section class="tools-section">
+    <section class="tools-section" data-zone-name="Herramienta">
         
         <div class="controls-wrapper-paleta">
             <h2 class="section-title">Creador de Paletas Cinemáticas</h2>
-            <p>Subí una imagen o fotograma y extraé los colores clave para tu dirección de arte o pitch. Hacé clic en un color para copiar su código HEX.</p>
+            <p>Sube una imagen o fotograma y extrae los colores clave para tu dirección de arte o pitch. Haz clic en un color para copiar su código HEX.</p>
       
     <input type="file" id="imageInput" accept="image/*" />
 
@@ -48,9 +50,6 @@
         </div>
     </section>
     <div data-layout="footer"></div>
-
-
-    <script src="../js/main.js?v=20261020"></script>
     <script>
         (function () {
             const imageInput = document.getElementById('imageInput');
@@ -211,7 +210,7 @@
                     doc.save('Paleta-Majagua.pdf');
                     if (window.majaguaTrack) window.majaguaTrack('paletas-pdf');
                 }).catch(() => {
-                    alert('No se pudo generar el PDF. Revisá tu conexión e intentá de nuevo.');
+                    alert('No se pudo generar el PDF. Revisa tu conexión e intenta de nuevo.');
                 }).finally(() => { btn.disabled = false; });
             });
 
@@ -226,4 +225,4 @@
     </script>
 </body>
 
-</html>
+</html>

@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const first = firstTC(original);
         $('shiftInfo').textContent = `${total} timecodes encontrados · primer evento ${first || '—'} · ` +
             `${changes.length} se mueven ${off.frames >= 0 ? '+' : '−'}${TC.framesToTC(Math.abs(off.frames), rate())}` +
-            (skipped ? ` · ${skipped} no válidos a ${TC.RATES[rate()].label} fps (revisá el frame rate)` : '') +
+            (skipped ? ` · ${skipped} no válidos a ${TC.RATES[rate()].label} fps (revisa el frame rate)` : '') +
             (negatives ? ` · ${negatives} quedarían antes de 00:00:00:00 y se dejaron en cero` : '');
 
         $('shiftPreview').innerHTML = changes.length

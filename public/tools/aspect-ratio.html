@@ -5,33 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Aspect Ratio y Letterbox online | Majagua Tools</title>
-    <meta name="description" content="Subí una imagen y simulá encuadres cinematográficos (1.85, 2.39, 16:9, 4:3, 9:16) con letterbox o pillarbox. Gratis y sin subir archivos a ningún servidor.">
+    <meta name="description" content="Sube una imagen y simula encuadres cinematográficos (1.85, 2.39, 16:9, 4:3, 9:16) con letterbox o pillarbox. Gratis y sin subir archivos a ningún servidor.">
     <link rel="canonical" href="https://majaguaproducciones.com/tools/aspect-ratio.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Majagua Producciones">
     <meta property="og:title" content="Simulador de Aspect Ratio y Letterbox online | Majagua Tools">
-    <meta property="og:description" content="Subí una imagen y simulá encuadres cinematográficos (1.85, 2.39, 16:9, 4:3, 9:16) con letterbox o pillarbox. Gratis y sin subir archivos a ningún servidor.">
+    <meta property="og:description" content="Sube una imagen y simula encuadres cinematográficos (1.85, 2.39, 16:9, 4:3, 9:16) con letterbox o pillarbox. Gratis y sin subir archivos a ningún servidor.">
     <meta property="og:url" content="https://majaguaproducciones.com/tools/aspect-ratio.html">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css?v=20261020">
-    <link rel="stylesheet" href="../css/tools.css?v=20261020">
-    <link rel="icon" type="image/png" href="../css/img/Icon.webp">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
 </head>
 <body>
     <nav data-layout="nav"></nav>
-    <script src="../js/layout.js?v=20261020"></script>
+    <script src="../js/layout.js"></script>
 
     <header data-layout="tools-hero"></header>
 
 
 
-   <section class="tools-section">
+   <section class="tools-section" data-zone-name="Herramienta">
         <div class="container">
             <h2 class="section-title">Visualizador de Aspect Ratios</h2>
 
-            <p>Subí una imagen o fotograma y elegí un aspect ratio para simular el encuadre con letterbox o pillarbox.
+            <p>Sube una imagen o fotograma y elige un aspect ratio para simular el encuadre con letterbox o pillarbox.
                 La imagen se procesa en tu navegador: no se sube a ningún servidor.</p>
 
             <div class="controls-wrapper">
@@ -73,7 +75,7 @@
                     <div id="left-bar" class="letterbox pillar"></div>
                     <div id="right-bar" class="letterbox pillar"></div>
                 </div>
-                <p class="placeholder-text" id="placeholder">Subí una imagen para empezar</p>
+                <p class="placeholder-text" id="placeholder">Sube una imagen para empezar</p>
             </div>
             <p id="ratioInfo" class="ratio-info"></p>
         </div>
@@ -82,9 +84,6 @@
 
 
     <div data-layout="footer"></div>
-
-
-    <script src="../js/main.js?v=20261020"></script>
     <script>
         (function () {
             const upload = document.getElementById('imageUpload');
@@ -153,4 +152,4 @@
     </script>
 </body>
 
-</html>
+</html>

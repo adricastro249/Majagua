@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 5. Territorio y calificación (AR-13)
         const rating = clean($('rating').value);
-        if (rating === 'XX') notes.push('No uses XX como calificación: si no tiene, dejá el campo vacío.');
+        if (rating === 'XX') notes.push('No uses XX como calificación: si no tiene, deja el campo vacío.');
         const terr = comboCode('territory');
         const territory = rating && rating !== 'XX' ? `${terr}-${rating}` : terr;
 
