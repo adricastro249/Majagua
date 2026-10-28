@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada | Majagua Producciones</title>
+  <meta name="robots" content="noindex">
+  <!-- Rutas absolutas (/css, /js, /img): Firebase muestra esta página en cualquier dirección, también dentro de /tools/ -->
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    html { background: var(--abisal); }
+    .abismo { min-height: 72svh; display: flex; align-items: center; padding-top: 110px; }
+    .abismo .abismo-num {
+      font-family: var(--mono); font-weight: 600; color: var(--linterna);
+      font-size: clamp(4rem, 16vw, 12rem); line-height: 1; letter-spacing: -0.04em;
+      text-shadow: 0 0 30px rgba(255, 201, 74, .45);
+    }
+    .abismo h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -0.035em; margin: 18px 0 14px; }
+    .abismo p { color: var(--espuma-2); font-size: var(--t-md); max-width: 34ch; }
+    .abismo .hero-actions { margin-top: 32px; }
+    .abismo .btn-line { color: var(--espuma); }
+    .fondo { margin-top: 0; }
+  </style>
+</head>
+
+<body data-profundidad="404">
+  <nav data-layout="nav"><a href="/">Majagua Producciones</a> <a href="/index.html#hacemos">Qué hacemos</a> <a href="/index.html#nosotras">Nosotras</a> <a href="/portfolio-web.html">Diseño web</a> <a href="/tools.html">Tools</a> <a href="/adriana.html">Adriana Castro</a> <a href="/mariana.html">Mariana Rojas Barroso</a></nav>
+  <script src="/js/layout.js"></script>
+
+  <main>
+    <section class="abismo" data-zone-name="Fuera del mapa">
+      <div class="wrap">
+        <p class="abismo-num" aria-hidden="true">−404 m</p>
+        <h1>Bajaste más de la cuenta</h1>
+        <p>Esta página no existe o se la llevó la corriente. Sube a la superficie o sigue explorando.</p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="/">Volver a la superficie</a>
+          <a class="btn btn-line" href="/tools.html">Ver las tools</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-layout="footer"></div>
+</body>
+</html>

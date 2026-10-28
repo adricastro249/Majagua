@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de contactos de video: fotogramas con timecode | Majagua Tools</title>
+    <meta name="description" content="Saca fotogramas de un video cada X segundos con su timecode y arma una hoja de contactos en JPG o un ZIP con las imágenes. Gratis y sin subir tu video.">
+    <link rel="canonical" href="https://majaguaproducciones.com/tools/hoja-contactos.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majagua Producciones">
+    <meta property="og:title" content="Hoja de contactos de video: fotogramas con timecode | Majagua Tools">
+    <meta property="og:description" content="Saca fotogramas de un video cada X segundos con su timecode y arma una hoja de contactos en JPG o un ZIP con las imágenes. Gratis y sin subir tu video.">
+    <meta property="og:url" content="https://majaguaproducciones.com/tools/hoja-contactos.html">
+    <meta property="og:image" content="https://majaguaproducciones.com/img/og-majagua.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Hoja de contactos de video", "url": "https://majaguaproducciones.com/tools/hoja-contactos.html", "description": "Saca fotogramas de un video cada X segundos con su timecode y arma una hoja de contactos en JPG o un ZIP con las imágenes. Gratis y sin subir tu video.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Navegador web", "inLanguage": "es", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Majagua Producciones", "url": "https://majaguaproducciones.com/"}}</script>
+</head>
+
+<body>
+    <nav data-layout="nav"><a href="../index.html">Majagua Producciones</a> <a href="../index.html#hacemos">Qué hacemos</a> <a href="../index.html#nosotras">Nosotras</a> <a href="../portfolio-web.html">Diseño web</a> <a href="../tools.html">Tools</a> <a href="../adriana.html">Adriana Castro</a> <a href="../mariana.html">Mariana Rojas Barroso</a></nav>
+    <script src="../js/layout.js"></script>
+
+    <header data-layout="tools-hero"></header>
+
+    <section class="tools-section" data-zone-name="Herramienta">
+        <div class="container tool-wide">
+            <h1 class="section-title">Hoja de contactos de video</h1>
+            <p>Sube un clip y saca fotogramas cada cierto tiempo, con su timecode. Sirve para revisar material, armar press kits o elegir la miniatura. El video no sale de tu computadora.</p>
+            <div class="tool-grid">
+                <div class="tool-panel">
+                    <h3><i class="fas fa-film"></i> Clip</h3>
+                    <div class="input-group"><label for="fileInput">Archivo de video</label>
+                        <input type="file" id="fileInput" accept="video/*"></div>
+                    <video id="video" class="cs-video" muted playsinline preload="metadata"></video>
+                    <p id="statusMsg" class="status-msg" role="status">MP4 (H.264), WebM o MOV. ProRes solo se abre en Safari.</p>
+                </div>
+                <div class="tool-panel">
+                    <h3><i class="fas fa-sliders"></i> Opciones</h3>
+                    <div class="input-row">
+                        <div class="input-group"><label for="mode">Sacar</label>
+                            <select id="mode"><option value="count">Una cantidad fija</option><option value="every">Uno cada X segundos</option></select></div>
+                        <div class="input-group" id="countGroup"><label for="count">Fotogramas</label><input type="number" id="count" value="24" min="1" max="200"></div>
+                        <div class="input-group" id="everyGroup" hidden><label for="every">Cada (s)</label><input type="number" id="every" value="10" min="0.1" step="0.5"></div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group"><label for="fps">Frame rate</label><select id="fps"></select></div>
+                        <div class="input-group"><label for="startTc">TC de inicio</label><input type="text" id="startTc" class="tc-input" value="00:00:00:00"></div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group"><label for="cols">Columnas de la hoja</label>
+                            <select id="cols"><option>3</option><option selected>4</option><option>5</option><option>6</option></select></div>
+                        <div class="input-group"><label for="thumbW">Ancho de cada cuadro</label>
+                            <select id="thumbW"><option value="480">480 px</option><option value="640" selected>640 px</option><option value="960">960 px</option><option value="1920">1920 px</option></select></div>
+                    </div>
+                    <div class="btn-row">
+                        <button type="button" class="btn-primary" id="makeBtn" disabled><i class="fas fa-table-cells" aria-hidden="true"></i> Generar</button>
+                        <button type="button" class="btn-secondary" id="sheetBtn" disabled>Descargar hoja JPG</button>
+                        <button type="button" class="btn-secondary" id="zipBtn" disabled>Fotogramas en ZIP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cs-grid" id="frames"></div>
+        </div>
+    </section>
+
+    <div data-layout="footer"></div>
+    <script src="../js/tools/tc-lib.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="../js/tools/hoja-contactos.js"></script>
+</body>
+
+</html>

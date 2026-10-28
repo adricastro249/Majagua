@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de almacenamiento para rodaje: TB, discos y backups | Majagua Tools</title>
+    <meta name="description" content="Calcula cuántos TB necesitas para el material de cámara de un rodaje según códec, resolución, horas por día, cámaras y copias de seguridad. Para DITs y producción.">
+    <link rel="canonical" href="https://majaguaproducciones.com/tools/almacenamiento-rodaje.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majagua Producciones">
+    <meta property="og:title" content="Calculadora de almacenamiento para rodaje: TB, discos y backups | Majagua Tools">
+    <meta property="og:description" content="Calcula cuántos TB necesitas para el material de cámara de un rodaje según códec, resolución, horas por día, cámaras y copias de seguridad. Para DITs y producción.">
+    <meta property="og:url" content="https://majaguaproducciones.com/tools/almacenamiento-rodaje.html">
+    <meta property="og:image" content="https://majaguaproducciones.com/img/og-majagua.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Almacenamiento de rodaje", "url": "https://majaguaproducciones.com/tools/almacenamiento-rodaje.html", "description": "Calcula cuántos TB necesitas para el material de cámara de un rodaje según códec, resolución, horas por día, cámaras y copias de seguridad. Para DITs y producción.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Navegador web", "inLanguage": "es", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Majagua Producciones", "url": "https://majaguaproducciones.com/"}}</script>
+</head>
+
+<body>
+    <nav data-layout="nav"><a href="../index.html">Majagua Producciones</a> <a href="../index.html#hacemos">Qué hacemos</a> <a href="../index.html#nosotras">Nosotras</a> <a href="../portfolio-web.html">Diseño web</a> <a href="../tools.html">Tools</a> <a href="../adriana.html">Adriana Castro</a> <a href="../mariana.html">Mariana Rojas Barroso</a></nav>
+    <script src="../js/layout.js"></script>
+
+    <header data-layout="tools-hero"></header>
+
+    <section class="tools-section" data-zone-name="Herramienta">
+        <div class="container tool-wide">
+            <h1 class="section-title">Almacenamiento de rodaje</h1>
+            <p>Calcula cuánto disco necesitas para el material de cámara: por día, para todo el rodaje y con las copias de seguridad. Ideal para presupuestar discos y planificar la descarga.</p>
+            <div class="tool-grid peso-grid" id="calc">
+                <div class="tool-panel">
+                    <h3><i class="fas fa-video"></i> Cámara</h3>
+                    <div class="input-group"><label for="codec">Códec de grabación</label>
+                        <select id="codec">
+                            <optgroup label="Apple ProRes">
+                                <option value="prores-proxy">ProRes 422 Proxy</option><option value="prores-lt">ProRes 422 LT</option>
+                                <option value="prores-422">ProRes 422</option><option value="prores-hq" selected>ProRes 422 HQ</option>
+                                <option value="prores-4444">ProRes 4444</option><option value="prores-xq">ProRes 4444 XQ</option>
+                            </optgroup>
+                            <optgroup label="Avid DNxHR">
+                                <option value="dnxhr-sq">DNxHR SQ</option><option value="dnxhr-hq">DNxHR HQ</option>
+                                <option value="dnxhr-hqx">DNxHR HQX</option><option value="dnxhr-444">DNxHR 444</option>
+                            </optgroup>
+                            <optgroup label="RAW u otro códec">
+                                <option value="custom-mbs">Escribir la velocidad del fabricante (MB/s)</option>
+                                <option value="custom-mbps">Escribir el bitrate (Mbps)</option>
+                            </optgroup>
+                        </select></div>
+                    <div class="input-group" id="customGroup" hidden><label for="customRate" id="customLabel">Velocidad de datos (MB/s)</label>
+                        <input type="number" id="customRate" value="300" min="1">
+                        <small>Para ARRIRAW, REDCODE, Blackmagic RAW o X-OCN, usa la calculadora de datos del fabricante de la cámara.</small></div>
+                    <div class="input-row" id="resGroup">
+                        <div class="input-group"><label for="resolution">Resolución</label>
+                            <select id="resolution">
+                                <option value="1920x1080">HD 1920×1080</option><option value="2048x1080">2K DCI</option>
+                                <option value="3840x2160" selected>UHD 3840×2160</option><option value="4096x2160">4K DCI</option>
+                                <option value="4448x3096">4.5K 4448×3096</option><option value="5760x3240">6K 5760×3240</option>
+                                <option value="8192x4320">8K 8192×4320</option>
+                            </select></div>
+                        <div class="input-group"><label for="fps">Frame rate</label>
+                            <select id="fps"><option value="23.976">23.976</option><option value="24" selected>24</option><option value="25">25</option>
+                                <option value="29.97">29.97</option><option value="48">48</option><option value="50">50</option><option value="59.94">59.94</option></select></div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group"><label for="cams">Cámaras</label><input type="number" id="cams" value="2" min="1"></div>
+                        <div class="input-group"><label for="hours">Horas grabadas por cámara por día</label><input type="number" id="hours" value="2" min="0" step="0.25"></div>
+                        <div class="input-group"><label for="days">Días de rodaje</label><input type="number" id="days" value="20" min="1"></div>
+                    </div>
+                </div>
+                <div class="tool-panel">
+                    <h3><i class="fas fa-hard-drive"></i> Resultado</h3>
+                    <div class="tool-result"><span class="result-label">Almacenamiento total</span><output id="outTotal" class="result-big"></output><span class="result-sub" id="outSub"></span></div>
+                    <table class="data-table"><tbody id="outRows"></tbody></table>
+                    <div class="input-row">
+                        <div class="input-group"><label for="copies">Copias del material</label>
+                            <select id="copies"><option value="1">1</option><option value="2">2</option><option value="3" selected>3 (regla 3-2-1)</option><option value="4">4</option></select></div>
+                        <div class="input-group"><label for="margin">Margen extra (%)</label><input type="number" id="margin" value="20" min="0" max="100"></div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group"><label for="diskSize">Tamaño de cada disco</label>
+                            <select id="diskSize"><option value="1">1 TB</option><option value="2">2 TB</option><option value="4" selected>4 TB</option><option value="8">8 TB</option><option value="12">12 TB</option><option value="20">20 TB</option></select></div>
+                        <div class="input-group"><label for="speed">Velocidad de copia</label>
+                            <select id="speed"><option value="150">Disco mecánico (150 MB/s)</option><option value="450" selected>SSD SATA (450 MB/s)</option><option value="1000">SSD USB-C / Thunderbolt (1000 MB/s)</option><option value="2500">NVMe (2500 MB/s)</option></select></div>
+                    </div>
+                </div>
+            </div>
+            <p class="tool-note">Estimación con los bitrates de referencia de Apple y Avid, escalados por resolución y frame rate (los mismos que la <a href="peso-exportacion.html">calculadora de peso de exportación</a>). TB = 1000⁴ bytes, como los fabricantes de discos. La velocidad de copia real depende del lector de tarjetas y del software de verificación.</p>
+        </div>
+    </section>
+
+    <div data-layout="footer"></div>
+    <script src="../js/tools/almacenamiento-rodaje.js"></script>
+</body>
+
+</html>

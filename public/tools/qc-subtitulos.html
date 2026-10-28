@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de calidad de subtítulos SRT: CPS, caracteres y duración | Majagua Tools</title>
+    <meta name="description" content="Revisa un archivo SRT o VTT: caracteres por línea, velocidad de lectura (CPS), duración mínima, solapamientos y separación. Normas tipo Netflix. Gratis y en tu navegador.">
+    <link rel="canonical" href="https://majaguaproducciones.com/tools/qc-subtitulos.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majagua Producciones">
+    <meta property="og:title" content="Control de calidad de subtítulos SRT: CPS, caracteres y duración | Majagua Tools">
+    <meta property="og:description" content="Revisa un archivo SRT o VTT: caracteres por línea, velocidad de lectura (CPS), duración mínima, solapamientos y separación. Normas tipo Netflix. Gratis y en tu navegador.">
+    <meta property="og:url" content="https://majaguaproducciones.com/tools/qc-subtitulos.html">
+    <meta property="og:image" content="https://majaguaproducciones.com/img/og-majagua.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Control de calidad de subtítulos", "url": "https://majaguaproducciones.com/tools/qc-subtitulos.html", "description": "Revisa un archivo SRT o VTT: caracteres por línea, velocidad de lectura (CPS), duración mínima, solapamientos y separación. Normas tipo Netflix. Gratis y en tu navegador.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Navegador web", "inLanguage": "es", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Majagua Producciones", "url": "https://majaguaproducciones.com/"}}</script>
+</head>
+
+<body>
+    <nav data-layout="nav"><a href="../index.html">Majagua Producciones</a> <a href="../index.html#hacemos">Qué hacemos</a> <a href="../index.html#nosotras">Nosotras</a> <a href="../portfolio-web.html">Diseño web</a> <a href="../tools.html">Tools</a> <a href="../adriana.html">Adriana Castro</a> <a href="../mariana.html">Mariana Rojas Barroso</a></nav>
+    <script src="../js/layout.js"></script>
+
+    <header data-layout="tools-hero"></header>
+
+    <section class="tools-section" data-zone-name="Herramienta">
+        <div class="container tool-wide">
+            <h1 class="section-title">Control de calidad de subtítulos</h1>
+            <p>Sube un SRT o VTT y revisa que cumpla las normas de entrega: caracteres por línea, velocidad de lectura, duración y separación entre subtítulos. Tus archivos no salen de tu navegador.</p>
+            <div class="tool-grid peso-grid">
+                <div class="tool-panel">
+                    <h3><i class="fas fa-file-import"></i> Archivo y normas</h3>
+                    <div class="input-group">
+                        <label for="fileInput">Archivo de subtítulos</label>
+                        <input type="file" id="fileInput" accept=".srt,.vtt,.txt">
+                    </div>
+                    <div class="input-group">
+                        <label for="norma">Norma</label>
+                        <select id="norma">
+                            <option value="netflix">Streaming (tipo Netflix y Disney+)</option>
+                            <option value="tv">Televisión</option>
+                            <option value="ninos">Contenido infantil</option>
+                            <option value="custom">Personalizada</option>
+                        </select>
+                        <small>Valores de referencia: revisa siempre la guía de estilo de tu cliente.</small>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group"><label for="maxChars">Caracteres por línea</label><input type="number" id="maxChars" min="10"></div>
+                        <div class="input-group"><label for="maxLines">Líneas</label><input type="number" id="maxLines" min="1"></div>
+                        <div class="input-group"><label for="maxCps">CPS máx.</label><input type="number" id="maxCps" step="0.5"></div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group"><label for="minDur">Duración mín. (s)</label><input type="number" id="minDur" step="0.001"></div>
+                        <div class="input-group"><label for="maxDur">Duración máx. (s)</label><input type="number" id="maxDur" step="0.5"></div>
+                        <div class="input-group"><label for="minGap">Separación mín. (s)</label><input type="number" id="minGap" step="0.001"></div>
+                    </div>
+                </div>
+                <div class="tool-panel">
+                    <h3><i class="fas fa-clipboard-check"></i> Resumen</h3>
+                    <div class="tool-result"><span class="result-label">Subtítulos sin problemas</span><output id="sumOk" class="result-big">–</output>
+                        <span class="result-sub"><span id="sumBad">0</span> con problemas de <span id="sumTotal">0</span></span></div>
+                    <label class="inline-check"><input type="checkbox" id="onlyErrors" checked> Mostrar solo los que tienen problemas</label>
+                    <button type="button" class="btn-primary" id="csvBtn" disabled><i class="fas fa-download" aria-hidden="true"></i> Descargar reporte CSV</button>
+                </div>
+            </div>
+            <p id="statusMsg" class="status-msg" role="status"></p>
+            <div class="tool-panel compare-panel">
+                <div class="table-scroll">
+                    <table class="data-table qc-table">
+                        <thead><tr><th class="num">#</th><th>Timecode</th><th>Texto</th><th class="num">CPS</th><th>Problemas</th></tr></thead>
+                        <tbody id="qcRows"><tr><td colspan="5" class="empty">Sube un archivo para revisarlo.</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+            <p class="tool-note">CPS = caracteres por segundo, contando espacios. ¿Necesitas cambiar de formato? Usa el <a href="conver-sub.html">conversor de subtítulos</a>.</p>
+        </div>
+    </section>
+
+    <div data-layout="footer"></div>
+    <script src="../js/tools/qc-subtitulos.js"></script>
+</body>
+
+</html>

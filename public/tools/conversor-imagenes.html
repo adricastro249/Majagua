@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir y comprimir imágenes JPG, PNG, WebP y TIFF online | Majagua Tools</title>
+    <meta name="description" content="Convierte y comprime imágenes entre JPG, PNG, WebP y TIFF, cambia el tamaño y baja todo en ZIP. Gratis, sin registro y sin subir tus fotos a ningún servidor.">
+    <link rel="canonical" href="https://majaguaproducciones.com/tools/conversor-imagenes.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majagua Producciones">
+    <meta property="og:title" content="Convertir y comprimir imágenes JPG, PNG, WebP y TIFF online | Majagua Tools">
+    <meta property="og:description" content="Convierte y comprime imágenes entre JPG, PNG, WebP y TIFF, cambia el tamaño y baja todo en ZIP. Gratis, sin registro y sin subir tus fotos a ningún servidor.">
+    <meta property="og:url" content="https://majaguaproducciones.com/tools/conversor-imagenes.html">
+    <meta property="og:image" content="https://majaguaproducciones.com/img/og-majagua.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Conversor y compresor de imágenes", "url": "https://majaguaproducciones.com/tools/conversor-imagenes.html", "description": "Convierte y comprime imágenes entre JPG, PNG, WebP y TIFF, cambia el tamaño y baja todo en ZIP. Gratis, sin registro y sin subir tus fotos a ningún servidor.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Navegador web", "inLanguage": "es", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Majagua Producciones", "url": "https://majaguaproducciones.com/"}}</script>
+</head>
+
+<body>
+    <nav data-layout="nav"><a href="../index.html">Majagua Producciones</a> <a href="../index.html#hacemos">Qué hacemos</a> <a href="../index.html#nosotras">Nosotras</a> <a href="../portfolio-web.html">Diseño web</a> <a href="../tools.html">Tools</a> <a href="../adriana.html">Adriana Castro</a> <a href="../mariana.html">Mariana Rojas Barroso</a></nav>
+    <script src="../js/layout.js"></script>
+
+    <header data-layout="tools-hero"></header>
+
+    <section class="tools-section" data-zone-name="Herramienta">
+        <div class="container tool-wide">
+            <h1 class="section-title">Conversor y compresor de imágenes</h1>
+            <p>Convierte entre JPG, PNG, WebP y TIFF, cambia el tamaño y comprime varias imágenes a la vez. Todo se procesa en tu navegador: tus fotos no se suben a ningún servidor.</p>
+            <div class="tool-grid">
+                <div class="tool-panel">
+                    <h3><i class="fas fa-sliders"></i> Opciones</h3>
+                    <div class="input-group">
+                        <label for="format">Convertir a</label>
+                        <select id="format">
+                            <option value="image/webp">WebP (ideal para la web)</option>
+                            <option value="image/jpeg">JPG</option>
+                            <option value="image/png">PNG (sin pérdida)</option>
+                            <option value="image/tiff">TIFF (sin compresión)</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="qualityGroup">
+                        <label for="quality">Calidad: <output id="qualityOut">82%</output></label>
+                        <input type="range" id="quality" min="30" max="100" value="82">
+                        <small>Entre 75 y 85 % casi no se nota la diferencia y el archivo pesa mucho menos.</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="preset">Tamaño</label>
+                        <select id="preset">
+                            <option value="original">Original</option>
+                            <option value="web">Web (máx. 1920 px)</option>
+                            <option value="youtube">Miniatura de YouTube (1280×720, menos de 2 MB)</option>
+                            <option value="instagram">Instagram vertical (1080×1350)</option>
+                            <option value="historia">Historia o Reel (1080×1920)</option>
+                            <option value="custom">Personalizado</option>
+                        </select>
+                    </div>
+                    <div class="input-row" id="customGroup" hidden>
+                        <div class="input-group"><label for="maxW">Ancho máx. (px)</label><input type="number" id="maxW" value="1600" min="16"></div>
+                        <div class="input-group"><label for="maxH">Alto máx. (px)</label><input type="number" id="maxH" value="1600" min="16"></div>
+                    </div>
+                    <div class="input-group" id="bgGroup" hidden>
+                        <label for="bgColor">Fondo para zonas transparentes</label>
+                        <input type="color" id="bgColor" value="#ffffff">
+                    </div>
+                </div>
+                <div class="tool-panel">
+                    <h3><i class="fas fa-images"></i> Imágenes</h3>
+                    <label class="drop-zone" id="dropZone">
+                        <input type="file" id="fileInput" accept="image/*,.tif,.tiff" multiple>
+                        <i class="fas fa-cloud-arrow-up" aria-hidden="true"></i>
+                        <b>Arrastra tus imágenes aquí</b>
+                        <span>o haz clic para elegirlas. JPG, PNG, WebP, TIFF, GIF o AVIF.</span>
+                    </label>
+                    <p class="tool-note" id="summary" role="status"></p>
+                    <div class="btn-row">
+                        <button type="button" class="btn-primary" id="zipBtn" disabled><i class="fas fa-file-zipper" aria-hidden="true"></i> Descargar todo en ZIP</button>
+                        <button type="button" class="btn-link" id="clearBtn" hidden>Limpiar lista</button>
+                    </div>
+                </div>
+            </div>
+            <ul class="conv-list" id="results"></ul>
+            <p class="tool-note"><i class="fas fa-circle-info" aria-hidden="true"></i> Al convertir en el navegador, la imagen pasa a sRGB y se pierden los metadatos (EXIF) y el perfil de color. Para la web no importa; para material de color o impresión, convierte desde tu programa de edición.</p>
+        </div>
+    </section>
+
+    <div data-layout="footer"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="../js/tools/conversor-imagenes.js"></script>
+</body>
+
+</html>

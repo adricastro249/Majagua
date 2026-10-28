@@ -26,7 +26,13 @@
     ['tools/paletas.html', 'Paletas de color'],
     ['tools/conver-sub.html', 'Conversor de subtítulos'],
     ['tools/marcadores-resolve.html', 'Marcadores de Resolve a notas'],
-    ['tools/dcp-name-generator.html', 'Nombres DCP']
+    ['tools/dcp-name-generator.html', 'Nombres DCP'],
+    ['tools/conversor-imagenes.html', 'Conversor de imágenes'],
+    ['tools/qc-subtitulos.html', 'Control de subtítulos'],
+    ['tools/barras-tono.html', 'Barras y tono'],
+    ['tools/hoja-contactos.html', 'Hoja de contactos de video'],
+    ['tools/almacenamiento-rodaje.html', 'Almacenamiento de rodaje'],
+    ['tools/comparador.html', 'Comparador antes y después']
   ];
 
   const FOOTERS = {
@@ -203,7 +209,8 @@
     function update() {
       const max = document.documentElement.scrollHeight - innerHeight;
       const f = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
-      depthEl.textContent = String(Math.round(f * MAX_DEPTH)).padStart(3, '0');
+      // Una página puede fijar su profundidad: <body data-profundidad="404">
+      depthEl.textContent = document.body.dataset.profundidad || String(Math.round(f * MAX_DEPTH)).padStart(3, '0');
       mark.style.setProperty('--y', (f * Math.max(0, track.offsetHeight - 3)) + 'px');
       let cur = zones[0];
       for (const z of zones) if (z.getBoundingClientRect().top <= innerHeight / 2) cur = z;
@@ -218,7 +225,7 @@
       lastZone = cur;
 
       // La luz de la superficie se va apagando con la profundidad
-      root.setProperty('--luz', Math.max(0, 1 - f * 1.7).toFixed(3));
+      root.setProperty('--luz', document.body.dataset.profundidad ? '0' : Math.max(0, 1 - f * 1.7).toFixed(3));
       root.setProperty('--luz-y', (f * 40).toFixed(1) + 'vh');
       if (f > 0.28) ballena();
 
@@ -383,7 +390,7 @@
     let lit = false, raf = 0, t0 = 0;
 
     new IntersectionObserver(([e]) => {
-      lit = e.intersectionRatio > 0.45;
+      lit = e.intersectionRatio > (document.body.dataset.profundidad ? 0 : 0.45);   // en la 404 ya estamos en el abismo
       fondo.classList.toggle('lit', lit);
       // Sin mouse (celular): la luz se pasea sola
       if (lit && !matchMedia('(hover: hover)').matches && !reduceMotion) { t0 = performance.now(); drift(); }

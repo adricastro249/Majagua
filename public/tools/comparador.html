@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador antes y después de imágenes, con deslizador | Majagua Tools</title>
+    <meta name="description" content="Compara dos imágenes con un deslizador, por ejemplo el material original y el etalonado, y exporta la comparación en JPG para enviarla al cliente. Gratis y en tu navegador.">
+    <link rel="canonical" href="https://majaguaproducciones.com/tools/comparador.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majagua Producciones">
+    <meta property="og:title" content="Comparador antes y después de imágenes, con deslizador | Majagua Tools">
+    <meta property="og:description" content="Compara dos imágenes con un deslizador, por ejemplo el material original y el etalonado, y exporta la comparación en JPG para enviarla al cliente. Gratis y en tu navegador.">
+    <meta property="og:url" content="https://majaguaproducciones.com/tools/comparador.html">
+    <meta property="og:image" content="https://majaguaproducciones.com/img/og-majagua.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Comparador antes y después", "url": "https://majaguaproducciones.com/tools/comparador.html", "description": "Compara dos imágenes con un deslizador, por ejemplo el material original y el etalonado, y exporta la comparación en JPG para enviarla al cliente. Gratis y en tu navegador.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Navegador web", "inLanguage": "es", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Majagua Producciones", "url": "https://majaguaproducciones.com/"}}</script>
+</head>
+
+<body>
+    <nav data-layout="nav"><a href="../index.html">Majagua Producciones</a> <a href="../index.html#hacemos">Qué hacemos</a> <a href="../index.html#nosotras">Nosotras</a> <a href="../portfolio-web.html">Diseño web</a> <a href="../tools.html">Tools</a> <a href="../adriana.html">Adriana Castro</a> <a href="../mariana.html">Mariana Rojas Barroso</a></nav>
+    <script src="../js/layout.js"></script>
+
+    <header data-layout="tools-hero"></header>
+
+    <section class="tools-section" data-zone-name="Herramienta">
+        <div class="container tool-wide">
+            <h1 class="section-title">Comparador antes y después</h1>
+            <p>Carga dos fotogramas, por ejemplo el original y el etalonado, compáralos con un deslizador y exporta la comparación para enviársela al cliente. Las imágenes no salen de tu navegador.</p>
+            <div class="tool-toolbar cmp-toolbar">
+                <div class="input-group"><label for="fileA">Antes</label><input type="file" id="fileA" accept="image/*"></div>
+                <div class="input-group"><label for="fileB">Después</label><input type="file" id="fileB" accept="image/*"></div>
+                <div class="input-group"><label for="labelA">Etiqueta izquierda</label><input type="text" id="labelA" value="Antes"></div>
+                <div class="input-group"><label for="labelB">Etiqueta derecha</label><input type="text" id="labelB" value="Después"></div>
+                <div class="input-group"><label for="mode">Vista</label>
+                    <select id="mode"><option value="slider">Deslizador</option><option value="side">Lado a lado</option></select></div>
+                <button type="button" class="btn-primary" id="exportBtn" disabled><i class="fas fa-download" aria-hidden="true"></i> Exportar JPG</button>
+            </div>
+            <p id="statusMsg" class="status-msg" role="status"></p>
+            <p class="cmp-empty" id="emptyMsg"><i class="fas fa-images" aria-hidden="true"></i> Elige las dos imágenes para compararlas.</p>
+            <div class="cmp-stage" id="stage" hidden>
+                <img id="imgAfter" alt="Imagen después" class="cmp-after">
+                <div class="cmp-before"><img id="imgBefore" alt="Imagen antes"></div>
+                <span class="cmp-tag cmp-tag-a" id="tagA">Antes</span><span class="cmp-tag cmp-tag-b" id="tagB">Después</span>
+                <div class="cmp-handle" id="handle" role="slider" tabindex="0" aria-label="Posición de la comparación" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span></span></div>
+            </div>
+        </div>
+    </section>
+
+    <div data-layout="footer"></div>
+    <script src="../js/tools/comparador.js"></script>
+</body>
+
+</html>

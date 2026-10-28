@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barras de color SMPTE y tono de 1 kHz para masters | Majagua Tools</title>
+    <meta name="description" content="Genera barras de color SMPTE o EBU en PNG a la resolución que elijas y un tono de referencia de 1 kHz en WAV 24 bits. Gratis, sin registro y en tu navegador.">
+    <link rel="canonical" href="https://majaguaproducciones.com/tools/barras-tono.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Majagua Producciones">
+    <meta property="og:title" content="Barras de color SMPTE y tono de 1 kHz para masters | Majagua Tools">
+    <meta property="og:description" content="Genera barras de color SMPTE o EBU en PNG a la resolución que elijas y un tono de referencia de 1 kHz en WAV 24 bits. Gratis, sin registro y en tu navegador.">
+    <meta property="og:url" content="https://majaguaproducciones.com/tools/barras-tono.html">
+    <meta property="og:image" content="https://majaguaproducciones.com/img/og-majagua.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tools-base.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Barras de color y tono de referencia", "url": "https://majaguaproducciones.com/tools/barras-tono.html", "description": "Genera barras de color SMPTE o EBU en PNG a la resolución que elijas y un tono de referencia de 1 kHz en WAV 24 bits. Gratis, sin registro y en tu navegador.", "applicationCategory": "MultimediaApplication", "operatingSystem": "Navegador web", "inLanguage": "es", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Majagua Producciones", "url": "https://majaguaproducciones.com/"}}</script>
+</head>
+
+<body>
+    <nav data-layout="nav"><a href="../index.html">Majagua Producciones</a> <a href="../index.html#hacemos">Qué hacemos</a> <a href="../index.html#nosotras">Nosotras</a> <a href="../portfolio-web.html">Diseño web</a> <a href="../tools.html">Tools</a> <a href="../adriana.html">Adriana Castro</a> <a href="../mariana.html">Mariana Rojas Barroso</a></nav>
+    <script src="../js/layout.js"></script>
+
+    <header data-layout="tools-hero"></header>
+
+    <section class="tools-section" data-zone-name="Herramienta">
+        <div class="container tool-wide">
+            <h1 class="section-title">Barras de color y tono de referencia</h1>
+            <p>Genera las barras para el inicio de tus masters en PNG y el tono de referencia en WAV, a la resolución y el nivel que te piden en la entrega.</p>
+            <div class="tool-grid">
+                <div class="tool-panel">
+                    <h3><i class="fas fa-bars-staggered"></i> Barras de color</h3>
+                    <div class="input-row">
+                        <div class="input-group"><label for="barsType">Tipo</label>
+                            <select id="barsType"><option value="smpte">SMPTE 75 %</option><option value="ebu">EBU 100 %</option></select></div>
+                        <div class="input-group"><label for="resolution">Resolución</label>
+                            <select id="resolution">
+                                <option value="1920x1080">HD 1920×1080</option>
+                                <option value="3840x2160">UHD 3840×2160</option>
+                                <option value="2048x1080">2K DCI 2048×1080</option>
+                                <option value="4096x2160">4K DCI 4096×2160</option>
+                                <option value="1280x720">HD 1280×720</option>
+                                <option value="1080x1920">Vertical 1080×1920</option>
+                            </select></div>
+                    </div>
+                    <div class="input-group"><label for="barsLabel">Texto sobre las barras (opcional)</label>
+                        <input type="text" id="barsLabel" placeholder="Ej: MI PELÍCULA · MASTER v3"></div>
+                    <canvas id="barsCanvas" class="bars-preview" aria-label="Vista previa de las barras"></canvas>
+                    <button type="button" class="btn-primary" id="barsDownload"><i class="fas fa-download" aria-hidden="true"></i> Descargar PNG</button>
+                </div>
+                <div class="tool-panel">
+                    <h3><i class="fas fa-wave-square"></i> Tono de referencia</h3>
+                    <div class="input-row">
+                        <div class="input-group"><label for="toneFreq">Frecuencia (Hz)</label><input type="number" id="toneFreq" value="1000" min="20" max="20000"></div>
+                        <div class="input-group"><label for="toneLevel">Nivel</label>
+                            <select id="toneLevel"><option value="-20">−20 dBFS (SMPTE)</option><option value="-18">−18 dBFS (EBU)</option><option value="-12">−12 dBFS</option></select></div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group"><label for="toneSecs">Duración (s)</label><input type="number" id="toneSecs" value="60" min="1" max="600"></div>
+                        <div class="input-group"><label for="toneRate">Muestreo</label>
+                            <select id="toneRate"><option value="48000">48 kHz</option><option value="96000">96 kHz</option></select></div>
+                        <div class="input-group"><label for="toneChannels">Canales</label>
+                            <select id="toneChannels"><option value="2">Estéreo</option><option value="1">Mono</option><option value="6">5.1</option></select></div>
+                    </div>
+                    <p class="tool-note" id="toneSize"></p>
+                    <div class="btn-row">
+                        <button type="button" class="btn-primary" id="toneDownload"><i class="fas fa-download" aria-hidden="true"></i> Descargar WAV 24 bits</button>
+                        <button type="button" class="btn-secondary" id="tonePlay"><i class="fas fa-play" aria-hidden="true"></i> Escuchar</button>
+                    </div>
+                </div>
+            </div>
+            <p class="tool-note">Las barras siguen la disposición clásica SMPTE (barras al 75 %, franja inversa, −I, +Q y PLUGE) o las EBU al 100 %. Para entregas de broadcast, revisa siempre las especificaciones del canal.</p>
+        </div>
+    </section>
+
+    <div data-layout="footer"></div>
+    <script src="../js/tools/barras-tono.js"></script>
+</body>
+
+</html>
